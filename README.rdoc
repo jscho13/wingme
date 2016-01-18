@@ -1,3 +1,6 @@
+![Build Status](https://codeship.com/projects/c8eef360-a05f-0133-b68b-1681093fc021/status?branch=master)
+![Code Climate](https://codeclimate.com/github/jscho13/wingme.png)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
