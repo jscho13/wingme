@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
 
-  def index
-    #this page doesnt need to exist
-  end
-
   def show
     user_id = params[:id]
+    @users = User.all
+    @matches = User.match_list(user_id)
     @friends = User.friend_list(user_id)
   end
 
