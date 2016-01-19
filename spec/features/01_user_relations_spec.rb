@@ -3,56 +3,56 @@ require "rails_helper"
 feature "user visits their show page" do
   let!(:user_1) {
     User.create(
-    email: 'jscho13@gmail.com',
-    first_name: 'Joseph',
-    last_name: 'Cho',
-    gender: 'M',
-    password: 'Applied91'
+      email: 'jscho13@gmail.com',
+      first_name: 'Joseph',
+      last_name: 'Cho',
+      gender: 'M',
+      password: 'Applied91'
     )
   }
   let!(:user_2) {
     User.create(
-    email: 'krdixon83@gmail.com',
-    first_name: 'Dickson',
-    last_name: 'Lau',
-    gender: 'M',
-    password: 'Applied91'
+      email: 'krdixon83@gmail.com',
+      first_name: 'Dickson',
+      last_name: 'Lau',
+      gender: 'M',
+      password: 'Applied91'
     )
   }
   let!(:user_3) {
     User.create(
-    email: 'shinshiny@gmail.com',
-    first_name: 'Hannah',
-    last_name: 'Shin',
-    gender: 'F',
-    password: 'Applied91'
+      email: 'shinshiny@gmail.com',
+      first_name: 'Hannah',
+      last_name: 'Shin',
+      gender: 'F',
+      password: 'Applied91'
     )
   }
   let!(:user_4) {
     User.create(
-    email: 'jrpespisa@verizon.net',
-    first_name: 'John',
-    last_name: 'Pespisa',
-    gender: 'M',
-    password: 'Applied91'
+      email: 'jrpespisa@verizon.net',
+      first_name: 'John',
+      last_name: 'Pespisa',
+      gender: 'M',
+      password: 'Applied91'
     )
   }
   let!(:user_5) {
     User.create(
-    email: 'amywerner@gmail.com',
-    first_name: 'Amy',
-    last_name: 'Werner',
-    gender: 'F',
-    password: 'Applied91'
+      email: 'amywerner@gmail.com',
+      first_name: 'Amy',
+      last_name: 'Werner',
+      gender: 'F',
+      password: 'Applied91'
     )
   }
   let!(:user_6) {
     User.create(
-    email: 'leonrusso@gmail.com',
-    first_name: 'Leon',
-    last_name: 'Russo',
-    gender: 'M',
-    password: 'Applied91'
+      email: 'leonrusso@gmail.com',
+      first_name: 'Leon',
+      last_name: 'Russo',
+      gender: 'M',
+      password: 'Applied91'
     )
   }
   let!(:friend_1) {
