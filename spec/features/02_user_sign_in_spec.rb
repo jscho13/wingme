@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 feature "user signs into website" do
-  let!(:user_1) { User.create(email: 'jscho13@gmail.com', first_name: 'Joseph', last_name: 'Cho', gender: 'M', password: 'Applied91') }
+  let!(:user_1) { User.create(email: 'jscho13@gmail.com',
+                              first_name: 'Joseph',
+                              last_name: 'Cho',
+                              gender: 'M',
+                              password: 'Applied91') }
 
   scenario "unauthenticated user visits site" do
     visit '/users'
