@@ -1,13 +1,17 @@
 class User < ActiveRecord::Base
   has_many :friends, class_name: "User",
-            foreign_key: "users_friend_id"
+                          foreign_key: "users_friend_id"
   has_many :matches, class_name: "User",
-            foreign_key: "users_match_id"
+                          foreign_key: "users_match_id"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable,
+          :registerable,
+          :recoverable,
+          :rememberable,
+          :trackable,
+          :validatable
 
   def self.match_list(user_id)
     matches = []
