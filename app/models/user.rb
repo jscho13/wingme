@@ -4,12 +4,21 @@ class User < ActiveRecord::Base
   has_many :matches, class_name: "User",
                           foreign_key: "users_match_id"
 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable
+
   def self.match_list(user_id)
     matches = []
     match_list = Match.where(user_id: "#{user_id}")
     match_list.each do |match|
       # We want a list of users, found by their user_id
-      matches << User.find(match.users_match_id)      
+      matches << User.find(match.users_match_id)
     end
     matches
   end

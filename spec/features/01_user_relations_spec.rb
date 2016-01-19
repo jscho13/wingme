@@ -1,0 +1,114 @@
+require "rails_helper"
+
+feature "user visits their show page" do
+  let!(:user_1) do
+    User.create(
+      email: 'jscho13@gmail.com',
+      first_name: 'Joseph',
+      last_name: 'Cho',
+      gender: 'M',
+      password: 'Applied91'
+    )
+  end
+
+  let!(:user_2) do
+    User.create(
+      email: 'krdixon83@gmail.com',
+      first_name: 'Dickson',
+      last_name: 'Lau',
+      gender: 'M',
+      password: 'Applied91'
+    )
+  end
+
+  let!(:user_3) do
+    User.create(
+      email: 'shinshiny@gmail.com',
+      first_name: 'Hannah',
+      last_name: 'Shin',
+      gender: 'F',
+      password: 'Applied91'
+    )
+  end
+
+  let!(:user_4) do
+    User.create(
+      email: 'jrpespisa@verizon.net',
+      first_name: 'John',
+      last_name: 'Pespisa',
+      gender: 'M',
+      password: 'Applied91'
+    )
+  end
+
+  let!(:user_5) do
+    User.create(
+      email: 'amywerner@gmail.com',
+      first_name: 'Amy',
+      last_name: 'Werner',
+      gender: 'F',
+      password: 'Applied91'
+    )
+  end
+
+  let!(:user_6) do
+    User.create(
+      email: 'leonrusso@gmail.com',
+      first_name: 'Leon',
+      last_name: 'Russo',
+      gender: 'M',
+      password: 'Applied91'
+    )
+  end
+
+  let!(:friend_1) do
+    Friend.create(
+      user_id: user_1.id,
+      users_friend_id: user_2.id
+    )
+  end
+
+  let!(:friend_2) do
+    Friend.create(
+      user_id: user_1.id,
+      users_friend_id: user_3.id
+    )
+  end
+
+  let!(:match) do
+    Match.create(
+      user_id: user_2.id,
+      users_match_id: user_4.id
+    )
+  end
+
+  let!(:match_2) do
+    Match.create(
+      user_id: user_2.id,
+      users_match_id: user_5.id
+    )
+  end
+
+  scenario "user can view their friends" do
+    sign_in_as(user_1)
+
+    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
+    expect(page).to have_content(user_3.first_name + " " + user_3.last_name)
+  end
+
+  scenario "user can view their matches" do
+    sign_in_as(user_1)
+
+    expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
+    expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
+  end
+
+  scenario "user can view all users" do
+    sign_in_as(user_1)
+
+    expect(page).to have_content(user_1.first_name + " " + user_1.last_name)
+    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
+    expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
+    expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
+  end
+end
