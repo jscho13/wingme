@@ -2,7 +2,6 @@ Devise.setup do |config|
   url = "please-change-me-at-config-initializers-devise@example.com"
   config.mailer_sender = url
 
-
   require 'devise/orm/active_record'
 
   config.case_insensitive_keys = [:email]
