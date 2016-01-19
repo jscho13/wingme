@@ -14,10 +14,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv-rails'
 gem 'devise'
 gem 'database_cleaner'
-gem 'fog'
+gem 'fog-aws'
 gem 'carrierwave'
 gem 'foundation-rails', '5.5.3.2'
 gem 'pg_search'
+
+gem "mini_magick"
 
 group :development, :test do
   gem 'mailcatcher'

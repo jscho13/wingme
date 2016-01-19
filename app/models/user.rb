@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
+ mount_uploader :picture, PictureUploader
+
   def self.match_list(user_id)
     matches = []
     match_list = Match.where(user_id: "#{user_id}")
