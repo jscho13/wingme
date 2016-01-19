@@ -56,20 +56,28 @@ feature "user visits their show page" do
     )
   }
   let!(:friend_1) {
-    Friend.create(user_id: user_1.id,
-    users_friend_id: user_2.id)
+    Friend.create(
+      user_id: user_1.id,
+      users_friend_id: user_2.id
+    )
   }
   let!(:friend_2) {
-    Friend.create(user_id: user_1.id,
-    users_friend_id: user_3.id)
+    Friend.create(
+      user_id: user_1.id,
+      users_friend_id: user_3.id
+    )
   }
   let!(:match) {
-    Match.create(user_id: user_2.id,
-    users_match_id: user_4.id)
+    Match.create(
+      user_id: user_2.id,
+      users_match_id: user_4.id
+    )
   }
   let!(:match_2) {
-    Match.create(user_id: user_2.id,
-    users_match_id: user_5.id)
+    Match.create(
+      user_id: user_2.id,
+      users_match_id: user_5.id
+    )
   }
 
   scenario "user can view their friends" do
