@@ -89,7 +89,6 @@ feature "user visits their show page" do
     )
   end
 
-
   scenario "user can view their friends" do
     sign_in_as(user_1)
 
