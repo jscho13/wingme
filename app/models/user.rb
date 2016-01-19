@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     match_list = Match.where(user_id: "#{user_id}")
     match_list.each do |match|
       # We want a list of users, found by their user_id
-      matches << User.find(match.users_match_id)      
+      matches << User.find(match.users_match_id)
     end
     matches
   end
