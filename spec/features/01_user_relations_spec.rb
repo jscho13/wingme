@@ -10,7 +10,7 @@ feature "user visits their show page" do
       password: 'Applied91'
     )
   end
-  
+
   let!(:user_2) do
     User.create(
       email: 'krdixon83@gmail.com',
@@ -20,7 +20,7 @@ feature "user visits their show page" do
       password: 'Applied91'
     )
   end
-  
+
   let!(:user_3) do
     User.create(
       email: 'shinshiny@gmail.com',
@@ -30,7 +30,7 @@ feature "user visits their show page" do
       password: 'Applied91'
     )
   end
-  
+
   let!(:user_4) do
     User.create(
       email: 'jrpespisa@verizon.net',
@@ -40,7 +40,7 @@ feature "user visits their show page" do
       password: 'Applied91'
     )
   end
-  
+
   let!(:user_5) do
     User.create(
       email: 'amywerner@gmail.com',
@@ -50,7 +50,7 @@ feature "user visits their show page" do
       password: 'Applied91'
     )
   end
-  
+
   let!(:user_6) do
     User.create(
       email: 'leonrusso@gmail.com',
@@ -60,35 +60,35 @@ feature "user visits their show page" do
       password: 'Applied91'
     )
   end
-  
+
   let!(:friend_1) do
     Friend.create(
       user_id: user_1.id,
       users_friend_id: user_2.id
     )
   end
-  
+
   let!(:friend_2) do
     Friend.create(
       user_id: user_1.id,
       users_friend_id: user_3.id
     )
   end
-  
+
   let!(:match) do
     Match.create(
       user_id: user_2.id,
       users_match_id: user_4.id
     )
   end
-  
+
   let!(:match_2) do
     Match.create(
       user_id: user_2.id,
       users_match_id: user_5.id
     )
   end
-  
+
 
   scenario "user can view their friends" do
     sign_in_as(user_1)
