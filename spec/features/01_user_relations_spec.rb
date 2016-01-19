@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "user visits their show page" do
-  let!(:user_1) {
+  let!(:user_1) do
     User.create(
       email: 'jscho13@gmail.com',
       first_name: 'Joseph',
@@ -9,8 +9,9 @@ feature "user visits their show page" do
       gender: 'M',
       password: 'Applied91'
     )
-  }
-  let!(:user_2) {
+  end
+  
+  let!(:user_2) do
     User.create(
       email: 'krdixon83@gmail.com',
       first_name: 'Dickson',
@@ -18,8 +19,9 @@ feature "user visits their show page" do
       gender: 'M',
       password: 'Applied91'
     )
-  }
-  let!(:user_3) {
+  end
+  
+  let!(:user_3) do
     User.create(
       email: 'shinshiny@gmail.com',
       first_name: 'Hannah',
@@ -27,8 +29,9 @@ feature "user visits their show page" do
       gender: 'F',
       password: 'Applied91'
     )
-  }
-  let!(:user_4) {
+  end
+  
+  let!(:user_4) do
     User.create(
       email: 'jrpespisa@verizon.net',
       first_name: 'John',
@@ -36,8 +39,9 @@ feature "user visits their show page" do
       gender: 'M',
       password: 'Applied91'
     )
-  }
-  let!(:user_5) {
+  end
+  
+  let!(:user_5) do
     User.create(
       email: 'amywerner@gmail.com',
       first_name: 'Amy',
@@ -45,8 +49,9 @@ feature "user visits their show page" do
       gender: 'F',
       password: 'Applied91'
     )
-  }
-  let!(:user_6) {
+  end
+  
+  let!(:user_6) do
     User.create(
       email: 'leonrusso@gmail.com',
       first_name: 'Leon',
@@ -54,31 +59,36 @@ feature "user visits their show page" do
       gender: 'M',
       password: 'Applied91'
     )
-  }
-  let!(:friend_1) {
+  end
+  
+  let!(:friend_1) do
     Friend.create(
       user_id: user_1.id,
       users_friend_id: user_2.id
     )
-  }
-  let!(:friend_2) {
+  end
+  
+  let!(:friend_2) do
     Friend.create(
       user_id: user_1.id,
       users_friend_id: user_3.id
     )
-  }
-  let!(:match) {
+  end
+  
+  let!(:match) do
     Match.create(
       user_id: user_2.id,
       users_match_id: user_4.id
     )
-  }
-  let!(:match_2) {
+  end
+  
+  let!(:match_2) do
     Match.create(
       user_id: user_2.id,
       users_match_id: user_5.id
     )
-  }
+  end
+  
 
   scenario "user can view their friends" do
     sign_in_as(user_1)
