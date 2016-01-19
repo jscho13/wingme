@@ -1,3 +1,5 @@
+<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+
 <h1>Meet People</h1>
 <% @users.each_with_index do |user, index| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
