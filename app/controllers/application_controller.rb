@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name]
-    devise_parameter_sanitizer.for(:sign_up) << [:gender]
+    devise_parameter_sanitizer.for(:sign_up) << [:gender, :picture]
     devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name]
-    devise_parameter_sanitizer.for(:account_update) << [:gender]
+    devise_parameter_sanitizer.for(:account_update) << [:gender, :picture]
   end
 
   def after_sign_in_path_for(user)

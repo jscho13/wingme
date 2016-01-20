@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :picture, PictureUploader
   has_many :friends, class_name: "User",
                           foreign_key: "users_friend_id"
   has_many :matches, class_name: "User",

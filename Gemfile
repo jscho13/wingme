@@ -19,6 +19,8 @@ gem 'carrierwave'
 gem 'foundation-rails', '5.5.3.2'
 gem 'pg_search'
 
+gem "mini_magick"
+
 group :development, :test do
   gem 'mailcatcher'
   gem 'actionmailer'
