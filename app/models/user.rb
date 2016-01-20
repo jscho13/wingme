@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-
-  GENDERS = ["Male", "Female", "Other"]
+  GENDERS = ["Male", "Female", "Other"].freeze
 
   mount_uploader :picture, PictureUploader
   has_many :friends
