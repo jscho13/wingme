@@ -1,13 +1,15 @@
 require 'rails_helper'
 
 feature "user edits their profile page" do
-  let!(:user_1) { User.create(
-    email: 'jscho13@gmail.com',
-    first_name: 'Joseph',
-    last_name: 'Cho',
-    gender: 'Male',
-    password: 'Applied91')
-  }
+  let!(:user_1) do
+    User.create(
+      email: 'jscho13@gmail.com',
+      first_name: 'Joseph',
+      last_name: 'Cho',
+      gender: 'Male',
+      password: 'Applied91'
+    )
+  end
 
   scenario "unauthenticated user visits edit page" do
     visit '/users/edit'
