@@ -33,12 +33,12 @@
   </div>
 
   <div class="field">
-    <%= radio_button_tag(:gender, "Male") %>
-    <%= label_tag(:male, "Male") %>
-    <%= radio_button_tag(:gender, "Female") %>
-    <%= label_tag(:female, "Female") %>
-    <%= radio_button_tag(:gender, "Other") %>
-    <%= label_tag(:other, "Other") %>
+    <%= f.radio_button(:gender, "Male") %>
+    <%= label_tag(:gender, "Male") %>
+    <%= f.radio_button(:gender, "Female") %>
+    <%= label_tag(:gender, "Female") %>
+    <%= f.radio_button(:gender, "Other") %>
+    <%= label_tag(:gender, "Other") %>
   </div>
 
   <div class="actions">
