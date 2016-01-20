@@ -3,11 +3,21 @@ require 'carrierwave/test/matchers'
 describe PictureUploader do
   include CarrierWave::Test::Matchers
 
+  let!(:user_1) do
+    User.create(
+      email: 'jscho13@gmail.com',
+      first_name: 'Joseph',
+      last_name: 'Cho',
+      gender: 'M',
+      password: 'Applied91'
+    )
+  end
+
   before do
     PictureUploader.enable_processing = true
-    @uploader = PictureUploader.new(@user, :picture)
+    @uploader = PictureUploader.new(user_1, :picture)
 
-    File.open(path_to_file) do |f|
+    File.open('app/assets/images/test_picture.jpg') do |f|
       @uploader.store!(f)
     end
   end
@@ -18,22 +28,18 @@ describe PictureUploader do
   end
 
   context 'the thumb version' do
-    it "should scale down a landscape image to be exactly 64 by 64 pixels" do
-      @uploader.thumb.should have_dimensions(64, 64)
+    it "should scale down a landscape image to be exactly 200 by 200 pixels" do
+      expect(@uploader.thumb).to have_dimensions(200, 200)
     end
   end
 
   context 'the small version' do
-    it "should scale down a landscape image to fit within 200 by 200 pixels" do
-      @uploader.small.should be_no_larger_than(200, 200)
+    it "should scale down a landscape image to fit within 800 by 800 pixels" do
+      expect(@uploader).to be_no_larger_than(800, 800)
     end
   end
 
-  it "should make the image readable only to the owner and not executable" do
-    @uploader.should have_permissions(0600)
-  end
-
-  it "should be the correct format" do
-    @uploader.should be_format('png')
+  it "unsure of differences between permissions 644 and 600" do
+    expect(@uploader).to have_permissions(0644)
   end
 end

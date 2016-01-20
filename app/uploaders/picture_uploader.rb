@@ -2,16 +2,19 @@
 
 class PictureUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  # Uncomment the below to allow image resizing. Play with
   include CarrierWave::MiniMagick
+  process resize_to_fill: [800, 800]
+  version :thumb do
+    process resize_to_fill: [200, 200]
+  end
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.production?
-    storage :fog
-  else
+
+  if Rails.env.test?
     storage :file
-    enable_processing = false
+  else
+    storage :fog
   end
 
   # Override the directory where uploaded files will be stored.
@@ -27,14 +30,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-
-  # Process files as they are uploaded:
-  process resize_to_fit: [800, 800]
-
-  # Create different versions of your uploaded files:
-  version :thumb do
-    process resize_to_fill: [200, 200]
-  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
