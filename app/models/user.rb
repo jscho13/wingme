@@ -20,12 +20,12 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
-  def self.match_list(user)
+  def match_list
     # Alternative syntax to find all matches for a single user
     # match_list = Match.where(user_id: "#{user_id}")
     match_list = []
-    unless user.matches.empty?
-      user.matches.each do |match|
+    unless self.matches.empty?
+      self.matches.each do |match|
         # This creates a list of users, found by their user_id
         match_list << User.find(match.users_match_id)
       end
@@ -33,10 +33,10 @@ class User < ActiveRecord::Base
     match_list
   end
 
-  def self.friend_list(user)
+  def friend_list
     friend_list = []
-    unless user.friends.empty?
-      user.friends.each do |friend|
+    unless self.friends.empty?
+      self.friends.each do |friend|
         # This creates a list of users, found by their user_id
         friend_list << User.find(friend.users_friend_id)
       end

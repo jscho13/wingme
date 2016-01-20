@@ -71,15 +71,16 @@ feature "user visits their show page" do
     expect(page).to have_content(user_3.first_name + " " + user_3.last_name)
   end
 
+  xscenario "user cannot re-add a friend" do
+    expect(page).to have_content(user_1.first_name + " " + user_1.last_name)
+    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
+  end
+
   xscenario "user can add a match" do
     expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
     expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
   end
 
-  xscenario "user cannot re-add a friend" do
-    expect(page).to have_content(user_1.first_name + " " + user_1.last_name)
-    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
-  end
 
   xscenario "user cannot re-add a match" do
     expect(page).to have_content(user_1.first_name + " " + user_1.last_name)
