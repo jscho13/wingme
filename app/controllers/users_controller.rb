@@ -11,5 +11,4 @@ class UsersController < ApplicationController
     @matches = User.match_list(user)
     @friends = User.friend_list(user)
   end
-
 end

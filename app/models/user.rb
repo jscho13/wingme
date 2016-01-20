@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
+  include ApplicationHelper
   GENDERS = ["Male", "Female", "Other"].freeze
-
   mount_uploader :picture, PictureUploader
   has_many :friends
   has_many :users, through: :friends

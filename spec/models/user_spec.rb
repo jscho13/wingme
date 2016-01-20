@@ -29,8 +29,12 @@ describe User do
   end
 
   it "validates for a complete name" do
-    user = FactoryGirl.build(:user, last_name: "")
+    user = FactoryGirl.build(:user, first_name: "")
     expect(user).to_not be_valid
   end
 
+  it "validates for a complete name" do
+    user = FactoryGirl.build(:user, last_name: "")
+    expect(user).to_not be_valid
+  end
 end

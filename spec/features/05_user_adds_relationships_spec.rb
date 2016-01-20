@@ -31,6 +31,36 @@ feature "user visits their show page" do
     )
   end
 
+  let!(:user_4) do
+    User.create(
+      email: 'jrpespisa@verizon.net',
+      first_name: 'John',
+      last_name: 'Pespisa',
+      gender: 'Male',
+      password: 'Applied91'
+    )
+  end
+
+  let!(:user_5) do
+    User.create(
+      email: 'amywerner@gmail.com',
+      first_name: 'Amy',
+      last_name: 'Werner',
+      gender: 'Female',
+      password: 'Applied91'
+    )
+  end
+
+  let!(:user_6) do
+    User.create(
+      email: 'leonrusso@gmail.com',
+      first_name: 'Leon',
+      last_name: 'Russo',
+      gender: 'Male',
+      password: 'Applied91'
+    )
+  end
+
   before(:each) do
     sign_in_as(user_1)
   end
