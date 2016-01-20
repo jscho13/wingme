@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_id = params[:id]
+    user = User.find(params[:id])
     @users = User.all
-    @matches = User.match_list(user_id)
-    @friends = User.friend_list(user_id)
+    @matches = User.match_list(user)
+    @friends = User.friend_list(user)
   end
 
 end
