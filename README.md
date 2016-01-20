@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/jscho13/wingme/badge.svg?branch=master)](https://coveralls.io/github/jscho13/wingme?branch=master)
 ![Build Status](https://codeship.com/projects/c8eef360-a05f-0133-b68b-1681093fc021/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/jscho13/wingme.png)
 
