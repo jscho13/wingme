@@ -5,7 +5,7 @@ feature "user signs into website" do
     email: 'jscho13@gmail.com',
     first_name: 'Joseph',
     last_name: 'Cho',
-    gender: 'M',
+    gender: 'Male',
     password: 'Applied91')
   }
 

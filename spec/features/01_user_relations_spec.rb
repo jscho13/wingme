@@ -6,7 +6,7 @@ feature "user visits their show page" do
       email: 'jscho13@gmail.com',
       first_name: 'Joseph',
       last_name: 'Cho',
-      gender: 'M',
+      gender: 'Male',
       password: 'Applied91'
     )
   end
@@ -16,7 +16,7 @@ feature "user visits their show page" do
       email: 'krdixon83@gmail.com',
       first_name: 'Dickson',
       last_name: 'Lau',
-      gender: 'M',
+      gender: 'Male',
       password: 'Applied91'
     )
   end
@@ -26,7 +26,7 @@ feature "user visits their show page" do
       email: 'shinshiny@gmail.com',
       first_name: 'Hannah',
       last_name: 'Shin',
-      gender: 'F',
+      gender: 'Female',
       password: 'Applied91'
     )
   end
@@ -36,7 +36,7 @@ feature "user visits their show page" do
       email: 'jrpespisa@verizon.net',
       first_name: 'John',
       last_name: 'Pespisa',
-      gender: 'M',
+      gender: 'Male',
       password: 'Applied91'
     )
   end
@@ -46,7 +46,7 @@ feature "user visits their show page" do
       email: 'amywerner@gmail.com',
       first_name: 'Amy',
       last_name: 'Werner',
-      gender: 'F',
+      gender: 'Female',
       password: 'Applied91'
     )
   end
@@ -56,7 +56,7 @@ feature "user visits their show page" do
       email: 'leonrusso@gmail.com',
       first_name: 'Leon',
       last_name: 'Russo',
-      gender: 'M',
+      gender: 'Male',
       password: 'Applied91'
     )
   end
