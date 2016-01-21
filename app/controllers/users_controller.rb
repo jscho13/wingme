@@ -10,5 +10,7 @@ class UsersController < ApplicationController
     @users = User.all
     @matches = user.match_list
     @friends = user.friend_list
+    @pending_friend_request_list = user.pending_friend_request_list if current_user == user
+    @pending_match_request_list = user.pending_match_request_list if current_user == user
   end
 end

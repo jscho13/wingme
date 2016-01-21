@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119220603) do
+ActiveRecord::Schema.define(version: 20160120215523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160119220603) do
     t.integer  "users_friend_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.boolean  "pending"
   end
 
   add_index "friends", ["user_id", "users_friend_id"], name: "index_friends_on_user_id_and_users_friend_id", unique: true, using: :btree
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160119220603) do
     t.integer  "users_match_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.boolean  "pending"
   end
 
   add_index "matches", ["user_id", "users_match_id"], name: "index_matches_on_user_id_and_users_match_id", unique: true, using: :btree

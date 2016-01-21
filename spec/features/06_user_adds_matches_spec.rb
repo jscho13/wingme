@@ -65,25 +65,24 @@ feature "user visits their show page" do
     sign_in_as(user_1)
   end
 
-  scenario "user can add a friend" do
+  xscenario "user can add a match" do
     click_on user_2.first_name + " " + user_2.last_name
     expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
     expect(page).to have_content(user_3.first_name + " " + user_3.last_name)
   end
 
-  xscenario "user cannot re-add a friend" do
+  xscenario "user cannot re-add a match" do
     expect(page).to have_content(user_1.first_name + " " + user_1.last_name)
     expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
   end
 
-  xscenario "user can add a match" do
+  xscenario "user does not have a match until other user confirms" do
     expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
     expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
   end
 
-
-  xscenario "user cannot re-add a match" do
-    expect(page).to have_content(user_1.first_name + " " + user_1.last_name)
-    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
+  xscenario "user can remove a match" do
+    expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
+    expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
   end
 end

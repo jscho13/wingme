@@ -1,20 +1,35 @@
-
+<h1>Signed in as:</h1>
+<%= current_user.first_name %>
 <h1>Meet People</h1>
 <% @users.each_with_index do |user, index| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
 <% end %>
 
 <h1>Matches</h1>
-
 <% @matches.each_with_index do |user, index| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
 <% end %>
 
 <h1>Friends</h1>
-
 <% @friends.each_with_index do |user, index| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
 <% end %>
+
+<% if @pending_friend_request_list %>
+  <h1>Pending Friend Requests</h1>
+  <% @pending_friend_request_list.each_with_index do |user, index| %>
+    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <% end %>
+<% end %>
+
+<% if @pending_match_request_list %>
+  <h1>Pending Match Requests</h1>
+  <% @pending_match_request_list.each_with_index do |user, index| %>
+    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <% end %>
+<% end %>
+
+<hr>
 
 <% if user_signed_in? %>
   <% unless current_user.picture.url.nil? %>
@@ -28,6 +43,18 @@
   <li><%= link_to "Sign In", new_user_session_path %></li>
 <% end %>
 
-<% if new_person? %>
+<% if add_friend? %>
   <li><%= link_to "Add Friend", new_friend_path(params[:id]) %></li>
+<% elsif pending_friend? %>
+  <li>Friend Request Pending</li>
+<% elsif confirm_friend? %>
+  <li><%= link_to "Be Friends!", friend_path(params[:id]) %></li>
+<% end %>
+
+<% if add_match? %>
+  <li><%= link_to "Add Match", new_match_path(params[:id]) %></li>
+<% elsif pending_match? %>
+  <li>Friend Request Pending</li>
+<% elsif confirm_match? %>
+  <li>Match!</li>
 <% end %>
