@@ -22,25 +22,14 @@ class User < ActiveRecord::Base
 
   def friend_list
     friend_list = []
-    unless self.friends.empty?
-      self.friends.where(pending: false).each do |friend|
-        friend_list << User.find(friend.users_friend_id)
-      end
+    Friend.where(user_id: self.id, pending: false).each do |friend|
+      friend_list << User.find(friend.users_friend_id)
     end
+    Friend.where(users_friend_id: self.id, pending: false).each do |friend|
+      friend_list << User.find(friend.user_id)
+    end
+    friend_list = friend_list - [self]
     friend_list
-  end
-
-  def match_list
-    # Alternative syntax to find all matches for a single user
-    # match_list = Match.where(user_id: "#{user_id}")
-    match_list = []
-    unless self.matches.empty?
-      self.matches.where(pending: false).each do |match|
-        # This creates a list of users, found by their user_id
-        match_list << User.find(match.users_match_id)
-      end
-    end
-    match_list
   end
 
   def pending_friends_list
@@ -57,6 +46,18 @@ class User < ActiveRecord::Base
       pending_list << User.find(friend.user_id)
     end
     pending_list
+  end
+
+  def match_list
+    match_list = []
+    Match.where(user_id: self.id, pending: false).each do |match|
+      match_list << User.find(match.users_match_id)
+    end
+    Match.where(users_match_id: self.id, pending: false).each do |match|
+      match_list << User.find(match.user_id)
+    end
+    match_list = match_list - [self]
+    match_list
   end
 
   def pending_matches_list

@@ -6,4 +6,10 @@ class FriendsController < ApplicationController
                   pending: true)
     redirect_to user_path(current_user)
   end
+
+  def update
+    friend_row = Friend.find(params[:id])
+    friend_row.update(pending: 'false')
+    redirect_to user_path(current_user)
+  end
 end

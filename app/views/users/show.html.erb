@@ -1,5 +1,5 @@
 <h1>Signed in as:</h1>
-<%= current_user.first_name %>
+  <%= current_user.first_name %>
 <h1>Meet People</h1>
 <% @users.each_with_index do |user, index| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
@@ -47,14 +47,14 @@
   <li><%= link_to "Add Friend", new_friend_path(params[:id]) %></li>
 <% elsif pending_friend? %>
   <li>Friend Request Pending</li>
-<% elsif confirm_friend? %>
-  <li><%= link_to "Be Friends!", friend_path(params[:id]) %></li>
+<% elsif confirm_friend %>
+  <li><%= link_to "Accept Friend!", friend_path(confirm_friend), :method => :patch %></li>
 <% end %>
 
 <% if add_match? %>
   <li><%= link_to "Add Match", new_match_path(params[:id]) %></li>
 <% elsif pending_match? %>
   <li>Friend Request Pending</li>
-<% elsif confirm_match? %>
-  <li>Match!</li>
+<% elsif confirm_match %>
+  <li>Accept Match!</li>
 <% end %>

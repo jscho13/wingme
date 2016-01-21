@@ -96,9 +96,10 @@ feature "user visits their show page" do
     click_on "Add Friend"
     click_on "Sign Out"
     sign_in_as(user_2)
-    click_on "Be Friends!"
+    visit user_path(user_1)
+    click_on "Accept Friend!"
 
-    page.body.index(user_2.first_name + " " + user_2.last_name).should > page.body.index("Friends")
+    expect(page).to have_link(user_1.first_name + " " + user_1.last_name, count: 2)
   end
 
   xscenario "user can remove a friend" do
