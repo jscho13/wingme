@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   def pending_matches_list
     pending_list = []
     Match.where(user_id: self.id, pending: true).each do |match|
-      pending_list << User.find(match.users_friend_id)
+      pending_list << User.find(match.users_match_id)
     end
     pending_list
   end
