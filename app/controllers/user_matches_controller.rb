@@ -16,13 +16,12 @@ class UserMatchesController < ApplicationController
   end
 
   def update
-    user_match = UserMatch.find(params[:id])
-    match = User.find(user_match.match_id)
-    user = User.find(params[:user_id])
-    old_relationship_1 = UserMatch.find_by(user: user, match: match)
-    old_relationship_1.update!(pending_acceptance: "false")
+    old_relationship_1 = UserMatch.find(params[:id])
+    user = User.find(old_relationship_1.user_id)
+    match = User.find(old_relationship_1.match_id)
+    old_relationship_1.update!(pending: "false")
     old_relationship_2 = UserMatch.find_by(user: match, match: user)
-    old_relationship_2.update!(pending: "false")
+    old_relationship_2.update!(pending_acceptance: "false")
     redirect_to user_path(current_user)
   end
 end

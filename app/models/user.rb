@@ -28,19 +28,26 @@ class User < ActiveRecord::Base
     through: :user_matches
 
   has_many :requested_user_matches,
-    -> { where(pending_acceptance: true) },
+    -> { where(pending: true) },
     class_name: "UserMatch"
   has_many :requested_matches,
     through: :requested_user_matches,
     source: :match
 
   has_many :requested_by_user_matches,
-    -> { where(pending: true) },
+    -> { where(pending_acceptance: true) },
     class_name:"UserMatch",
     foreign_key: :match_id
   has_many :requested_by_matches,
     through: :requested_by_user_matches,
     source: :user
+
+  has_many :pending_match_requests,
+    -> { where(pending: false, pending_acceptance: true) },
+    class_name:"UserMatch"
+  has_many :pending_matches,
+    through: :pending_match_requests,
+    source: :match
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -69,7 +76,7 @@ class User < ActiveRecord::Base
   end
 
   def pending_match?(user)
-    requested_matches.include?(user)
+    pending_matches.include?(user)
   end
 
   def match_request_sent_by?(user)
@@ -78,5 +85,9 @@ class User < ActiveRecord::Base
 
   def match?(user)
     matches.include?(user)
+  end
+
+  def minus_friend(user)
+    friends - [User.find(user)]
   end
 end

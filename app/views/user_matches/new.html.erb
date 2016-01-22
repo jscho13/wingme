@@ -1,4 +1,4 @@
 <h1>Match Friends</h1>
-<% current_user.friends.each do |user| %>
+<% current_user.minus_friend(@selected_user).each do |user| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_matches_path(@selected_user, matched_user: user.id), :method => :post %>
 <% end %>

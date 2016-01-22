@@ -55,6 +55,14 @@
     password: '12341234'
   )
 
+  User.create(
+    email: 'jujukoo@gmail.com',
+    first_name: 'Julie',
+    last_name: 'Gendrano',
+    gender: 'Female',
+    password: '12341234'
+  )
+
   UserFriend.create(
     user_id: 1,
     friend_id: 2,

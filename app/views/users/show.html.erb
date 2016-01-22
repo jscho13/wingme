@@ -24,7 +24,7 @@
 
 <% if @user == current_user %>
   <h1>Pending Match Requests</h1>
-  <% current_user.requested_by_matches.each do |user| %>
+  <% current_user.requested_matches.each do |user| %>
     <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
   <% end %>
 <% end %>
