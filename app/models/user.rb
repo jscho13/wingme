@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :requested_by_user_friends,
     -> { where(pending: true) },
-    class_name:"UserFriend",
+    class_name: "UserFriend",
     foreign_key: :friend_id
   has_many :requested_by_friends,
     through: :requested_by_user_friends,
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   has_many :requested_by_user_matches,
     -> { where(pending_acceptance: true) },
-    class_name:"UserMatch",
+    class_name: "UserMatch",
     foreign_key: :match_id
   has_many :requested_by_matches,
     through: :requested_by_user_matches,
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   has_many :pending_match_requests,
     -> { where(pending: false, pending_acceptance: true) },
-    class_name:"UserMatch"
+    class_name: "UserMatch"
   has_many :pending_matches,
     through: :pending_match_requests,
     source: :match

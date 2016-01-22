@@ -61,6 +61,10 @@ feature "user visits their show page" do
     )
   end
 
+  let!(:full_name) do
+    user_2.first_name + " " + user_2.last_name
+  end
+
   before(:each) do
     sign_in_as(user_1)
   end
@@ -88,7 +92,7 @@ feature "user visits their show page" do
   scenario "user does not have a friend until other user confirms" do
     click_on user_2.first_name + " " + user_2.last_name
     click_on "Add Friend"
-    page.body.index(user_2.first_name + " " + user_2.last_name).should_not > page.body.index("Friends")
+    page.body.index(full_name).should_not > page.body.index("Friends")
   end
 
   scenario "user has a friend when the other user confirms" do
@@ -98,7 +102,7 @@ feature "user visits their show page" do
     sign_in_as(user_2)
     visit user_path(user_1)
     click_on "Accept Friend!"
-    expect(page).to have_link(user_1.first_name + " " + user_1.last_name, count: 2)
+    expect(page).to have_link(user_1.first_name+" "+user_1.last_name, count: 2)
   end
 
   xscenario "user can remove a friend" do

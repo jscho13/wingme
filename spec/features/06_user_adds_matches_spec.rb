@@ -77,7 +77,6 @@ feature "user visits their show page" do
     )
   end
 
-
   before(:each) do
     sign_in_as(user_1)
   end
@@ -125,7 +124,7 @@ feature "user visits their show page" do
     visit user_path(user_2)
     click_on "Accept Match!"
 
-    expect(page).to have_link(user_2.first_name + " " + user_2.last_name, count: 2)
+    expect(page).to have_link(user_2.first_name+" "+user_2.last_name, count: 2)
   end
 
   xscenario "user can remove a match" do
