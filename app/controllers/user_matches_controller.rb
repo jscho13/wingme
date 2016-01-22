@@ -5,13 +5,13 @@ class UserMatchesController < ApplicationController
 
   def create
     UserMatch.create(user_id: params[:user_id],
-                    match_id: params[:matched_user],
-                    pending: true,
-                    pending_acceptance: true)
+                     match_id: params[:matched_user],
+                     pending: true,
+                     pending_acceptance: true)
     UserMatch.create(user_id: params[:matched_user],
-                    match_id: params[:user_id],
-                    pending: true,
-                    pending_acceptance: true)
+                     match_id: params[:user_id],
+                     pending: true,
+                     pending_acceptance: true)
     redirect_to user_path(params[:user_id])
   end
 
