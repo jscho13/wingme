@@ -4,8 +4,7 @@ feature "user visits their show page" do
   let!(:user_1) do
     User.create(
       email: 'jscho13@gmail.com',
-      first_name: 'Joseph',
-      last_name: 'Cho',
+      name: 'Joseph Cho',
       gender: 'Male',
       password: 'Applied91'
     )
@@ -14,8 +13,7 @@ feature "user visits their show page" do
   let!(:user_2) do
     User.create(
       email: 'krdixon83@gmail.com',
-      first_name: 'Dickson',
-      last_name: 'Lau',
+      name: 'Dickson Lau',
       gender: 'Male',
       password: 'Applied91'
     )
@@ -24,8 +22,7 @@ feature "user visits their show page" do
   let!(:user_3) do
     User.create(
       email: 'shinshiny@gmail.com',
-      first_name: 'Hannah',
-      last_name: 'Shin',
+      name: 'Hannah Shin',
       gender: 'Female',
       password: 'Applied91'
     )
@@ -34,8 +31,7 @@ feature "user visits their show page" do
   let!(:user_4) do
     User.create(
       email: 'jrpespisa@verizon.net',
-      first_name: 'John',
-      last_name: 'Pespisa',
+      name: 'John Pepisa',
       gender: 'Male',
       password: 'Applied91'
     )
@@ -44,8 +40,7 @@ feature "user visits their show page" do
   let!(:user_5) do
     User.create(
       email: 'amywerner@gmail.com',
-      first_name: 'Amy',
-      last_name: 'Werner',
+      name: 'Amy Werner',
       gender: 'Female',
       password: 'Applied91'
     )
@@ -54,8 +49,7 @@ feature "user visits their show page" do
   let!(:user_6) do
     User.create(
       email: 'leonrusso@gmail.com',
-      first_name: 'Leon',
-      last_name: 'Russo',
+      name: 'Leon Russo',
       gender: 'Male',
       password: 'Applied91'
     )
@@ -71,14 +65,14 @@ feature "user visits their show page" do
 
   let!(:friend_2) do
     UserFriend.create(
-      user_id: user_2.id,
-      friend_id: user_1.id,
+      user_id: user_1.id,
+      friend_id: user_3.id,
       pending: false
     )
   end
 
   let!(:full_name) do
-    user_2.first_name + " " + user_2.last_name
+    user_2.name
   end
 
   before(:each) do
@@ -88,7 +82,7 @@ feature "user visits their show page" do
   scenario "user can accept a match" do
     visit user_path(user_5)
     click_on "Add Match"
-    click_on user_2.first_name + " " + user_2.last_name
+    click_on user_2.name
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_5)
@@ -101,7 +95,7 @@ feature "user visits their show page" do
   scenario "user cannot re-add a match" do
     visit user_path(user_5)
     click_on "Add Match"
-    click_on user_2.first_name + " " + user_2.last_name
+    click_on user_2.name
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_5)
@@ -118,7 +112,7 @@ feature "user visits their show page" do
   scenario "user does not have a match until other user confirms" do
     visit user_path(user_5)
     click_on "Add Match"
-    click_on user_2.first_name + " " + user_2.last_name
+    click_on user_2.name
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_5)
@@ -139,7 +133,7 @@ feature "user visits their show page" do
   end
 
   xscenario "user can remove a match" do
-    expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
-    expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
+    expect(page).to have_content(user_4.name)
+    expect(page).to have_content(user_5.name)
   end
 end

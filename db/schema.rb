@@ -42,8 +42,7 @@ ActiveRecord::Schema.define(version: 20160122173117) do
   add_index "user_matches", ["user_id"], name: "index_user_matches_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",                          null: false
-    t.string   "last_name",                           null: false
+    t.string   "name",                                null: false
     t.string   "gender",                              null: false
     t.string   "address"
     t.integer  "zip_code"

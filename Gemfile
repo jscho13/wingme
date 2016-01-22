@@ -27,6 +27,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
+  gem 'faker'
 end
 
 group :test do
@@ -36,7 +37,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec'
-  gem 'faker'
 end
 
 group :development do

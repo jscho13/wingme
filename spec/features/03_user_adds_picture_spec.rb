@@ -6,8 +6,7 @@ describe PictureUploader do
   let!(:user_1) do
     User.create(
       email: 'jscho13@gmail.com',
-      first_name: 'Joseph',
-      last_name: 'Cho',
+      name: 'Joseph Cho',
       gender: 'M',
       password: 'Applied91'
     )
