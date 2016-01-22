@@ -19,6 +19,7 @@ gem 'carrierwave'
 gem 'foundation-rails', '5.5.3.2'
 gem 'pg_search'
 gem "mini_magick"
+gem 'omniauth-facebook', '3.0.0'
 
 group :development, :test do
   gem 'mailcatcher'
