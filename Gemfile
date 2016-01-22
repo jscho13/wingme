@@ -19,6 +19,7 @@ gem 'carrierwave'
 gem 'foundation-rails', '5.5.3.2'
 gem 'pg_search'
 gem "mini_magick"
+gem 'omniauth-facebook', '3.0.0'
 
 group :development, :test do
   gem 'mailcatcher'
@@ -26,6 +27,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
+  gem 'faker'
 end
 
 group :test do
@@ -35,7 +37,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec'
-  gem 'faker'
 end
 
 group :development do

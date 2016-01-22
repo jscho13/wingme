@@ -1,31 +1,31 @@
 <h1>Signed in as:</h1>
-  <%= current_user.first_name %>
+  <%= current_user.name %>
 <h1>Meet People</h1>
 <% @users.each do |user| %>
-  <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <%= link_to "#{user.name}", user_path(user) %>
 <% end %>
 
 <h1>Matches</h1>
 <% @user.matches.each do |user| %>
-  <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <%= link_to "#{user.name}", user_path(user) %>
 <% end %>
 
 <h1>Friends</h1>
 <% @user.friends.each do |user| %>
-  <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <%= link_to "#{user.name}", user_path(user) %>
 <% end %>
 
 <% if @user == current_user %>
   <h1>Pending Friend Requests</h1>
   <% current_user.requested_by_friends.each do |user| %>
-    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+    <%= link_to "#{user.name}", user_path(user) %>
   <% end %>
 <% end %>
 
 <% if @user == current_user %>
   <h1>Pending Match Requests</h1>
   <% current_user.requested_matches.each do |user| %>
-    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+    <%= link_to "#{user.name}", user_path(user) %>
   <% end %>
 <% end %>
 

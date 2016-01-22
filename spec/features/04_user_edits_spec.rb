@@ -4,8 +4,7 @@ feature "user edits their profile page" do
   let!(:user_1) do
     User.create(
       email: 'jscho13@gmail.com',
-      first_name: 'Joseph',
-      last_name: 'Cho',
+      name: 'Joseph Cho',
       gender: 'Male',
       password: 'Applied91'
     )
