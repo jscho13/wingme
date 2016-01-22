@@ -6,11 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
+    @user = User.find(params[:id])
     @users = User.all
-    @matches = user.match_list
-    @friends = user.friend_list
-    @pending_friend_request_list = user.pending_friend_request_list if current_user == user
-    @pending_match_request_list = user.pending_match_request_list if current_user == user
+    @user_friend = UserFriend.find_by(user: @user, friend: current_user)
+    @user_match = UserMatch.find_by(user: @user, match: @user.requested_by_matches.first)
   end
 end

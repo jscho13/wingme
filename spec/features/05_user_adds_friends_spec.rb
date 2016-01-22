@@ -98,7 +98,6 @@ feature "user visits their show page" do
     sign_in_as(user_2)
     visit user_path(user_1)
     click_on "Accept Friend!"
-
     expect(page).to have_link(user_1.first_name + " " + user_1.last_name, count: 2)
   end
 

@@ -11,34 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120215523) do
+ActiveRecord::Schema.define(version: 20160121230058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "friends", force: :cascade do |t|
+  create_table "user_friends", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "users_friend_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.boolean  "pending"
+    t.integer  "friend_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "pending",    default: true, null: false
   end
 
-  add_index "friends", ["user_id", "users_friend_id"], name: "index_friends_on_user_id_and_users_friend_id", unique: true, using: :btree
-  add_index "friends", ["user_id"], name: "index_friends_on_user_id", using: :btree
-  add_index "friends", ["users_friend_id"], name: "index_friends_on_users_friend_id", using: :btree
+  add_index "user_friends", ["friend_id"], name: "index_user_friends_on_friend_id", using: :btree
+  add_index "user_friends", ["user_id", "friend_id"], name: "index_user_friends_on_user_id_and_friend_id", unique: true, using: :btree
+  add_index "user_friends", ["user_id"], name: "index_user_friends_on_user_id", using: :btree
 
-  create_table "matches", force: :cascade do |t|
+  create_table "user_matches", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "users_match_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.boolean  "pending"
+    t.integer  "match_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.boolean  "pending",            default: true, null: false
+    t.boolean  "pending_acceptance", default: true, null: false
   end
 
-  add_index "matches", ["user_id", "users_match_id"], name: "index_matches_on_user_id_and_users_match_id", unique: true, using: :btree
-  add_index "matches", ["user_id"], name: "index_matches_on_user_id", using: :btree
-  add_index "matches", ["users_match_id"], name: "index_matches_on_users_match_id", using: :btree
+  add_index "user_matches", ["match_id"], name: "index_user_matches_on_match_id", using: :btree
+  add_index "user_matches", ["user_id", "match_id"], name: "index_user_matches_on_user_id_and_match_id", unique: true, using: :btree
+  add_index "user_matches", ["user_id"], name: "index_user_matches_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -65,6 +66,6 @@ ActiveRecord::Schema.define(version: 20160120215523) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "friends", "users"
-  add_foreign_key "matches", "users"
+  add_foreign_key "user_friends", "users"
+  add_foreign_key "user_matches", "users"
 end

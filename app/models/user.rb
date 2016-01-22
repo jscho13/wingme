@@ -2,10 +2,46 @@ class User < ActiveRecord::Base
   include ApplicationHelper
   GENDERS = ["Male", "Female", "Other"].freeze
   mount_uploader :picture, PictureUploader
-  has_many :friends
-  has_many :users, through: :friends
-  has_many :matches
-  has_many :users, through: :matches
+  has_many :user_friends,
+    -> { where(pending: false) }
+  has_many :friends,
+    through: :user_friends
+
+  has_many :requested_user_friends,
+    -> { where(pending: true) },
+    class_name: "UserFriend"
+  has_many :requested_friends,
+    through: :requested_user_friends,
+    source: :friend
+
+  has_many :requested_by_user_friends,
+    -> { where(pending: true) },
+    class_name:"UserFriend",
+    foreign_key: :friend_id
+  has_many :requested_by_friends,
+    through: :requested_by_user_friends,
+    source: :user
+
+  has_many :user_matches,
+    -> { where(pending: false, pending_acceptance: false) }
+  has_many :matches,
+    through: :user_matches
+
+  has_many :requested_user_matches,
+    -> { where(pending_acceptance: true) },
+    class_name: "UserMatch"
+  has_many :requested_matches,
+    through: :requested_user_matches,
+    source: :match
+
+  has_many :requested_by_user_matches,
+    -> { where(pending: true) },
+    class_name:"UserMatch",
+    foreign_key: :match_id
+  has_many :requested_by_matches,
+    through: :requested_by_user_matches,
+    source: :user
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
@@ -20,59 +56,27 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
-  def friend_list
-    friend_list = []
-    Friend.where(user_id: self.id, pending: false).each do |friend|
-      friend_list << User.find(friend.users_friend_id)
-    end
-    Friend.where(users_friend_id: self.id, pending: false).each do |friend|
-      friend_list << User.find(friend.user_id)
-    end
-    friend_list = friend_list - [self]
-    friend_list
+  def pending_friend?(user)
+    requested_friends.include?(user)
   end
 
-  def pending_friends_list
-    pending_list = []
-    Friend.where(user_id: self.id, pending: true).each do |friend|
-      pending_list << User.find(friend.users_friend_id)
-    end
-    pending_list
+  def friend_request_sent_by?(user)
+    requested_by_friends.include?(user)
   end
 
-  def pending_friend_request_list
-    pending_list = []
-    Friend.where(users_friend_id: self.id, pending: true).each do |friend|
-      pending_list << User.find(friend.user_id)
-    end
-    pending_list
+  def friend?(user)
+    friends.include?(user)
   end
 
-  def match_list
-    match_list = []
-    Match.where(user_id: self.id, pending: false).each do |match|
-      match_list << User.find(match.users_match_id)
-    end
-    Match.where(users_match_id: self.id, pending: false).each do |match|
-      match_list << User.find(match.user_id)
-    end
-    match_list = match_list - [self]
-    match_list
+  def pending_match?(user)
+    requested_matches.include?(user)
   end
 
-  def pending_matches_list
-    pending_list = []
-    Match.where(user_id: self.id, pending: true).each do |match|
-      pending_list << User.find(match.users_match_id)
-    end
-    pending_list
+  def match_request_sent_by?(user)
+    requested_by_matches.include?(user)
   end
 
-  def pending_match_request_list
-    pending_list = []
-    Match.where(users_match_id: self.id, pending: true).each do |match|
-      pending_list << User.find(match.user_id)
-    end
-    pending_list
+  def match?(user)
+    matches.include?(user)
   end
 end

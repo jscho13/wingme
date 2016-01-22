@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   it { should have_many :friends }
-  it { should have_many :matches }
+  it { should have_many :user_matches }
 
   describe "unique email validations" do
     subject { FactoryGirl.build(:user) }

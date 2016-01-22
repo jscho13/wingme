@@ -65,15 +65,40 @@ feature "user visits their show page" do
     sign_in_as(user_1)
   end
 
-  xscenario "user can add a match" do
+  scenario "user can add a match" do
     click_on user_2.first_name + " " + user_2.last_name
-    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
-    expect(page).to have_content(user_3.first_name + " " + user_3.last_name)
+    click_on "Add Friend"
+    click_on "Sign Out"
+    sign_in_as(user_2)
+    visit user_path(user_1)
+    click_on "Accept Friend!"
+    click_on "Sign Out"
+    sign_in_as(user_1)
+    visit user_path(user_5)
+    click_on "Add Match"
+    click_on user_2.first_name + " " + user_2.last_name
+    click_on "Sign Out"
+    sign_in_as(user_2)
+    click_on "Accept Match!"
+    expect(page).to have_link(user_5.first_name + " " + user_5.last_name, count: 2)
   end
 
-  xscenario "user cannot re-add a match" do
-    expect(page).to have_content(user_1.first_name + " " + user_1.last_name)
-    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
+  scenario "user cannot re-add a match" do
+    click_on user_2.first_name + " " + user_2.last_name
+    click_on "Add Friend"
+    click_on "Sign Out"
+    sign_in_as(user_2)
+    visit user_path(user_1)
+    click_on "Accept Friend!"
+    click_on "Sign Out"
+    sign_in_as(user_1)
+    visit user_path(user_5)
+    click_on "Add Match"
+    click_on user_2.first_name + " " + user_2.last_name
+    visit user_path(user_5)
+    click_on "Add Match"
+
+    expect(page).to_not have_content(user_2.first_name + " " + user_2.last_name)
   end
 
   xscenario "user does not have a match until other user confirms" do

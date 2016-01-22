@@ -62,30 +62,30 @@ feature "user visits their show page" do
   end
 
   let!(:friend_1) do
-    Friend.create(
+    UserFriend.create(
       user_id: user_1.id,
-      users_friend_id: user_2.id
+      friend_id: user_2.id
     )
   end
 
   let!(:friend_2) do
-    Friend.create(
+    UserFriend.create(
       user_id: user_1.id,
-      users_friend_id: user_3.id
+      friend_id: user_3.id
     )
   end
 
   let!(:match) do
-    Match.create(
+    UserMatch.create(
       user_id: user_2.id,
-      users_match_id: user_4.id
+      match_id: user_4.id
     )
   end
 
   let!(:match_2) do
-    Match.create(
+    UserMatch.create(
       user_id: user_2.id,
-      users_match_id: user_5.id
+      match_id: user_5.id
     )
   end
 

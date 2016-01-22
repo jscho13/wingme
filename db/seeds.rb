@@ -54,3 +54,15 @@
     gender: 'Male',
     password: '12341234'
   )
+
+  UserFriend.create(
+    user_id: 1,
+    friend_id: 2,
+    pending: false
+  )
+
+  UserFriend.create(
+    user_id: 2,
+    friend_id: 1,
+    pending: false
+  )
