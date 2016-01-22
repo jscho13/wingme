@@ -61,53 +61,55 @@ feature "user visits their show page" do
     )
   end
 
-  let!(:friend_1) do
-    UserFriend.create(
-      user_id: user_1.id,
-      friend_id: user_2.id
-    )
+  let!(:full_name_1) do
+    user_1.first_name + " " + user_1.last_name
   end
 
-  let!(:friend_2) do
-    UserFriend.create(
-      user_id: user_1.id,
-      friend_id: user_3.id
-    )
+  let!(:full_name_2) do
+    user_2.first_name + " " + user_2.last_name
   end
 
-  let!(:match) do
-    UserMatch.create(
-      user_id: user_2.id,
-      match_id: user_4.id
-    )
-  end
-
-  let!(:match_2) do
-    UserMatch.create(
-      user_id: user_2.id,
-      match_id: user_5.id
-    )
-  end
-
-  scenario "user can view their friends" do
+  before(:each) do
     sign_in_as(user_1)
-
-    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
-    expect(page).to have_content(user_3.first_name + " " + user_3.last_name)
   end
 
-  scenario "user can view their matches" do
-    sign_in_as(user_1)
-
-    expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
-    expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
+  scenario "user can add a friend" do
+    click_on user_2.first_name + " " + user_2.last_name
+    expect(page).to have_content("Add Friend")
+    click_on "Add Friend"
+    visit user_path(user_2)
+    expect(page).to have_content("Friend Request Pending")
   end
 
-  scenario "user can view all users" do
-    sign_in_as(user_1)
+  scenario "user cannot re-add a friend" do
+    click_on user_2.first_name + " " + user_2.last_name
+    click_on "Add Friend"
+    visit user_path(user_2)
+    expect(page).to_not have_content("Add Friend")
+  end
 
-    expect(page).to have_content(user_1.first_name + " " + user_1.last_name)
-    expect(page).to have_content(user_2.first_name + " " + user_2.last_name)
+  scenario "user cannot see other peoples pending list" do
+    click_on user_2.first_name + " " + user_2.last_name
+    expect(page).to_not have_content("Pending")
+  end
+
+  scenario "user does not have a friend until other user confirms" do
+    click_on user_2.first_name + " " + user_2.last_name
+    click_on "Add Friend"
+    page.body.index(full_name_2).should_not > page.body.index("Friends")
+  end
+
+  scenario "user has a friend when the other user confirms" do
+    click_on user_2.first_name + " " + user_2.last_name
+    click_on "Add Friend"
+    click_on "Sign Out"
+    sign_in_as(user_2)
+    visit user_path(user_1)
+    click_on "Accept Friend!"
+    expect(page).to have_link(full_name_1, count: 2)
+  end
+
+  xscenario "user can remove a friend" do
     expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
     expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
   end

@@ -1,20 +1,35 @@
-
+<h1>Signed in as:</h1>
+  <%= current_user.first_name %>
 <h1>Meet People</h1>
-<% @users.each_with_index do |user, index| %>
+<% @users.each do |user| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
 <% end %>
 
 <h1>Matches</h1>
-
-<% @matches.each_with_index do |user, index| %>
+<% @user.matches.each do |user| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
 <% end %>
 
 <h1>Friends</h1>
-
-<% @friends.each_with_index do |user, index| %>
+<% @user.friends.each do |user| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
 <% end %>
+
+<% if @user == current_user %>
+  <h1>Pending Friend Requests</h1>
+  <% current_user.requested_by_friends.each do |user| %>
+    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <% end %>
+<% end %>
+
+<% if @user == current_user %>
+  <h1>Pending Match Requests</h1>
+  <% current_user.requested_matches.each do |user| %>
+    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <% end %>
+<% end %>
+
+<hr>
 
 <% if user_signed_in? %>
   <% unless current_user.picture.url.nil? %>
@@ -26,4 +41,23 @@
   <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
   <% else %>
   <li><%= link_to "Sign In", new_user_session_path %></li>
+<% end %>
+
+
+<% if current_user.pending_friend?(@user) %>
+  <li>Friend Request Pending</li>
+<% elsif current_user.friend_request_sent_by?(@user) %>
+  <li><%= link_to "Accept Friend!", user_friend_path(@user, @user_friend), :method => :patch %></li>
+<% elsif current_user == @user %>
+<% elsif !current_user.friend?(@user) %>
+  <li><%= link_to "Add Friend", user_friends_path(@user), method: :post %></li>
+<% end %>
+
+<% if current_user.match_request_sent_by?(@user) %>
+  <li><%= link_to "Accept Match!", user_match_path(@user, @user_match), :method => :patch %></li>
+<% elsif current_user.pending_match?(@user) %>
+  <li>Match Request Pending</li>
+<% elsif current_user == @user %>
+<% elsif !current_user.match?(@user) %>
+  <li><%= link_to "Add Match", new_user_match_path(params[:id]) %></li>
 <% end %>

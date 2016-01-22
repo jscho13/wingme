@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   it { should have_many :friends }
-  it { should have_many :matches }
+  it { should have_many :user_matches }
 
   describe "unique email validations" do
     subject { FactoryGirl.build(:user) }
@@ -14,7 +14,7 @@ describe User do
     expect(FactoryGirl.build(:user, password: "abc123")).to_not be_valid
   end
 
-  it "validates for an correct password length" do
+  it "validates for a correct user" do
     user = FactoryGirl.create(:user)
     expect(user).to be_valid
   end
@@ -28,4 +28,13 @@ describe User do
     expect(FactoryGirl.build(:user, gender: "Hello")).to_not be_valid
   end
 
+  it "validates for a complete name" do
+    user = FactoryGirl.build(:user, first_name: "")
+    expect(user).to_not be_valid
+  end
+
+  it "validates for a complete name" do
+    user = FactoryGirl.build(:user, last_name: "")
+    expect(user).to_not be_valid
+  end
 end

@@ -16,7 +16,7 @@ feature "user edits their profile page" do
     expect(page).to have_content('You need to sign in or sign up')
   end
 
-  scenario "user succesfully edits their name" do
+  scenario "user succesfully edits their gender" do
     sign_in_as(user_1)
     visit '/users/edit'
     choose 'user_gender_other'
