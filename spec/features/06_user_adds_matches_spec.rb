@@ -131,6 +131,13 @@ feature "user visits their show page" do
     expect(page).to have_link(full_name, count: 2)
   end
 
+  scenario "user cannot be matched with themself" do
+    visit user_path(user_2)
+    click_on "Add Match"
+
+    expect(page).to_not have_content(full_name)
+  end
+
   xscenario "user can remove a match" do
     expect(page).to have_content(user_4.first_name + " " + user_4.last_name)
     expect(page).to have_content(user_5.first_name + " " + user_5.last_name)
