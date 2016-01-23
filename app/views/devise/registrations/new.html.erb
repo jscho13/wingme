@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= image_tag(@user.picture_url) if @user.picture? %><br />
+    <%= f.text_field :remote_picture_url %>
+  </div>
+
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
