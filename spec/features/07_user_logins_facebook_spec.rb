@@ -17,16 +17,19 @@ feature "user visits their show page" do
   before(:each) do
     OmniAuth.config.mock_auth[:facebook] = nil
     OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-      provider: 'facebook',
-      uid: '123545',
-      info: {
-        email: 'jscho13@gmail.com',
-        name: 'Joseph Cho',
-        image: t_url
-      },
-      extra: { raw_info: { gender: 'Male' } }
-    })
+    OmniAuth.config.mock_auth[:facebook] =
+    OmniAuth::AuthHash.new(
+      {
+        provider: 'facebook',
+        uid: '123545',
+        info: {
+          email: 'jscho13@gmail.com',
+          name: 'Joseph Cho',
+          image: t_url
+        },
+        extra: { raw_info: { gender: 'Male' } }
+      }
+    )
     fake_authorization = OmniAuth.config.mock_auth[:facebook]
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
     Rails.application.env_config["omniauth.auth"] = fake_authorization
