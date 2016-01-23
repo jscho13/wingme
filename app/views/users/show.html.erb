@@ -1,5 +1,7 @@
 <h1>Signed in as:</h1>
   <%= current_user.name %>
+<h1>Viewing:</h1>
+  <%= @user.name %>
 <h1>Meet People</h1>
 <% @users.each do |user| %>
   <%= link_to "#{user.name}", user_path(user) %>

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class User < ActiveRecord::Base
   include ApplicationHelper
   GENDERS = ["Male", "Female", "Other"].freeze
@@ -64,12 +66,25 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
   def self.from_omniauth(auth)
-   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-     user.email = auth.info.email
-     user.password = Devise.friendly_token[0,20]
-     user.name = auth.info.name   # assuming the user model has a name
-     user.picture = auth.info.image # assuming the user model has an image
-   end
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name   # assuming the user model has a name
+      user.remote_picture_url = auth.info.image.gsub('http://','https://')
+      user.gender = auth.extra.raw_info.gender
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"]
+        user.name = data["info"]["name"] if user.name.blank?
+        user.email = data["info"]["email"] if user.email.blank?
+        gender = data["extra"]["raw_info"]["gender"]
+        user.gender = gender[0].upcase + gender[1..-1] if user.gender.blank?
+        user.remote_picture_url = data["info"]["image"].gsub('http://','https://')
+      end
+    end
   end
 
   def pending_friend?(user)
@@ -98,13 +113,5 @@ class User < ActiveRecord::Base
 
   def minus_friend(user)
     friends - [User.find(user)]
-  end
-
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
   end
 end
