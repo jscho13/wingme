@@ -18,8 +18,7 @@ feature "user visits their show page" do
     OmniAuth.config.mock_auth[:facebook] = nil
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:facebook] =
-    OmniAuth::AuthHash.new(
-      {
+      OmniAuth::AuthHash.new(
         provider: 'facebook',
         uid: '123545',
         info: {
@@ -28,8 +27,7 @@ feature "user visits their show page" do
           image: t_url
         },
         extra: { raw_info: { gender: 'Male' } }
-      }
-    )
+      )
     fake_authorization = OmniAuth.config.mock_auth[:facebook]
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
     Rails.application.env_config["omniauth.auth"] = fake_authorization
