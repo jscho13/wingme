@@ -68,9 +68,9 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name   # assuming the user model has a name
-      user.remote_picture_url = auth.info.image.gsub('http://','https://')
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+      user.remote_picture_url = auth.info.image.gsub('http://', 'https://')
       user.gender = auth.extra.raw_info.gender
     end
   end
@@ -82,7 +82,8 @@ class User < ActiveRecord::Base
         user.email = data["info"]["email"] if user.email.blank?
         gender = data["extra"]["raw_info"]["gender"]
         user.gender = gender[0].upcase + gender[1..-1] if user.gender.blank?
-        user.remote_picture_url = data["info"]["image"].gsub('http://','https://')
+        url = data["info"]["image"]
+        user.remote_picture_url = url.gsub('http://','https://')
       end
     end
   end
