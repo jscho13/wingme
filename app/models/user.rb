@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
         gender = data["extra"]["raw_info"]["gender"]
         user.gender = gender[0].upcase + gender[1..-1] if user.gender.blank?
         url = data["info"]["image"]
-        user.remote_picture_url = url.gsub('http://','https://')
+        user.remote_picture_url = url.gsub('http://', 'https://')
       end
     end
   end
