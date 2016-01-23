@@ -1,22 +1,13 @@
 require "rails_helper"
 
 feature "user visits their show page" do
-  let!(:user_1) do
-    User.create(
-      email: 'jscho13@gmail.com',
-      name: 'Joseph Cho',
-      gender: 'Male',
-      password: 'Applied91'
-    )
-  end
-
   let!(:t_url) do
     'https://ariherzog.com/blog/wp-content/uploads/2010/10/longurl.jpg'
   end
 
   before(:each) do
-    OmniAuth.config.mock_auth[:facebook] = nil
     OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:facebook] = nil
     OmniAuth.config.mock_auth[:facebook] =
       OmniAuth::AuthHash.new(
         provider: 'facebook',
