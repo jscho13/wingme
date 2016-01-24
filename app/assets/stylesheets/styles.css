@@ -1,7 +1,43 @@
-.title-bar {
-  font-size: 2.5vmin;
+/* red #f58d7b */
+/* green #7bf58d */
+/* blue #8d7bf5 */
+/* complement #7be3f5 */
+/* analgous mango #f5ca7b */
+/* analgous pink #f57ba6 */
+
+/* Global stuff */
+.off-canvas-wrapper {
+  height: 100%;
 }
 
-h1 {
-  font-size: 10vmin;
+.title-bar-title {
+  font-size: 5vmin;
+}
+
+/* This sets up the home page */
+.media-container {
+  position: relative;
+  background-size: cover;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+}
+
+.overlay h2 {
+  margin: 0 auto;
+  font-size: 8vmin;
+  color: white;
+  width: 70%;
+}
+
+.sign-in-link {
+  margin-top: 5%;
+}
+
+.sign-in-link a {
+  color: #7bf58d;
 }

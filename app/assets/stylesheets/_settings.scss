@@ -1,8 +1,9 @@
-// green #94adee
-// blue #94adee
-// red #ee94ad
-// complement #d594ee
-// analgous #daee94
+// red #f58d7b
+// green #7bf58d
+// blue #8d7bf5
+// complement #7be3f5
+// analgous mango #f5ca7b
+// analgous pink #f57ba6
 
 
 //  Foundation for Sites Settings
@@ -54,8 +55,8 @@
 $global-font-size: 100%;
 $global-width: auto;
 $global-lineheight: 1.5;
-$primary-color: #2199e8;
-$secondary-color: #777;
+$primary-color: #fefefe;
+$secondary-color: #7be3f5;
 $success-color: #3adb76;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
@@ -64,7 +65,7 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: #94adee;
+$body-background: #f58d7b;
 $body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
@@ -140,7 +141,7 @@ $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
 $anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-color-hover: $secondary-color;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -384,13 +385,13 @@ $menu-expand-max: 6;
 // 23. Off-canvas
 // --------------
 
-$offcanvas-size: 100%;
-$offcanvas-background: #94adee;
+$offcanvas-size: 25%;
+$offcanvas-background: #f58d7b;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
-$offcanvas-exit-background: rgba(#94adee, 0);
+$offcanvas-exit-background: rgba(#f58d7b, 0);
 $maincontent-class: 'off-canvas-content';
 $maincontent-shadow: 0 0 0;
 
@@ -528,7 +529,7 @@ $titlebar-background: $white;
 $titlebar-color: $black;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
-$titlebar-icon-color: #94adee;
+$titlebar-icon-color: #f58d7b;
 $titlebar-icon-color-hover: #d594ee;
 $titlebar-icon-spacing: 0.5rem;
 
