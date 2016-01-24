@@ -1,4 +1,4 @@
-// green #adee94
+// green #94adee
 // blue #94adee
 // red #ee94ad
 // complement #d594ee
@@ -52,7 +52,7 @@
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: auto;
 $global-lineheight: 1.5;
 $primary-color: #2199e8;
 $secondary-color: #777;
@@ -64,7 +64,7 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: #adee94;
+$body-background: #94adee;
 $body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
@@ -385,12 +385,12 @@ $menu-expand-max: 6;
 // --------------
 
 $offcanvas-size: 250px;
-$offcanvas-background: #adee94;
+$offcanvas-background: #94adee;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
-$offcanvas-exit-background: rgba(#adee94, 0);
+$offcanvas-exit-background: rgba(#94adee, 0);
 $maincontent-class: 'off-canvas-content';
 $maincontent-shadow: 0 0 0;
 
@@ -528,7 +528,7 @@ $titlebar-background: $white;
 $titlebar-color: $black;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
-$titlebar-icon-color: #adee94;
+$titlebar-icon-color: #94adee;
 $titlebar-icon-color-hover: #d594ee;
 $titlebar-icon-spacing: 0.5rem;
 
