@@ -16,7 +16,7 @@ gem 'devise'
 gem 'database_cleaner'
 gem 'fog'
 gem 'carrierwave'
-gem 'foundation-rails', '5.5.3.2'
+gem 'foundation-rails', '6.1.1.3'
 gem 'pg_search'
 gem "mini_magick"
 gem 'omniauth-facebook', '3.0.0'
