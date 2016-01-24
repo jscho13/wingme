@@ -10,8 +10,29 @@
 <%= render 'layouts/flash' %>
 
 <body>
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 
-  <%= yield %>
+      <div class="off-canvas position-left" id="menuTrigger" data-off-canvas>
+        <ul class="vertical dropdown menu" data-dropdown-menu>
+          <li><a href="right_item_1">right item 1</a></li>
+          <li><a href="right_item_2">right item 2</a></li>
+          <li><a href="right_item_3">right item 3</a></li>
+        </ul>
+      </div>
 
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <button class="menu-icon" type="button" data-open="menuTrigger"></button>
+          <span class="title-bar-title">WingMe</span>
+        </div>
+      </div>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+        <%= yield %>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
