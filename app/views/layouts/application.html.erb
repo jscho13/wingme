@@ -2,20 +2,22 @@
 <html>
 <head>
   <title>Wingme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 
-<%- flash.each do |key, value| -%>
-	<div class=“flash flash-<%= key %>”>
-		<%= value %>
-	</div>
-<%- end -%>
-
 <body>
-
-<%= yield %>
-
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+      <%= render 'layouts/menu' %>
+      <%= render 'layouts/title_bar' %>
+      <div class="off-canvas-content" data-off-canvas-content>
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

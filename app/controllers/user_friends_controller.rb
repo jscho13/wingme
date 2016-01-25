@@ -1,4 +1,14 @@
 class UserFriendsController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    if params[:id] != nil
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+  end
+
   def create
     friend = User.find(params[:user_id])
     UserFriend.create!(

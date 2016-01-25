@@ -19,42 +19,6 @@ feature "user visits their show page" do
     )
   end
 
-  let!(:user_3) do
-    User.create(
-      email: 'shinshiny@gmail.com',
-      name: 'Hannah Shin',
-      gender: 'Female',
-      password: 'Applied91'
-    )
-  end
-
-  let!(:user_4) do
-    User.create(
-      email: 'jrpespisa@verizon.net',
-      name: 'John Pespisa',
-      gender: 'Male',
-      password: 'Applied91'
-    )
-  end
-
-  let!(:user_5) do
-    User.create(
-      email: 'amywerner@gmail.com',
-      name: 'Amy Werner',
-      gender: 'Female',
-      password: 'Applied91'
-    )
-  end
-
-  let!(:user_6) do
-    User.create(
-      email: 'leonrusso@gmail.com',
-      name: 'Leon Russo',
-      gender: 'Male',
-      password: 'Applied91'
-    )
-  end
-
   let!(:full_name_1) do
     user_1.name
   end
@@ -89,17 +53,19 @@ feature "user visits their show page" do
   scenario "user does not have a friend until other user confirms" do
     click_on user_2.name
     click_on "Add Friend"
-    page.body.index(full_name_2).should_not > page.body.index("Friends")
+    visit user_friends_path(user_1)
+    expect(page).to_not have_content(full_name_2)
   end
 
-  scenario "user has a friend when the other user confirms" do
+  scenario "user has a friend when both users confirm" do
     click_on user_2.name
     click_on "Add Friend"
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_1)
     click_on "Accept Friend!"
-    expect(page).to have_link(full_name_1, count: 2)
+    visit user_friends_path(user_2)
+    expect(page).to have_content(full_name_1)
   end
 
   xscenario "user can remove a friend" do
