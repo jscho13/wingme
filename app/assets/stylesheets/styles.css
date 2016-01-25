@@ -1,3 +1,6 @@
+/* TITLE: font-family: 'Satisfy', cursive; */
+/* HEADERS: font-family: 'Lora', serif; */
+/* TEXT: font-family: 'Slabo 27px', serif; */
 /* red #f58d7b */
 /* green #7bf58d */
 /* blue #8d7bf5 */
@@ -15,6 +18,7 @@ a {
 }
 
 .title-bar-title {
+  font-family: 'Satisfy', cursive;
   font-size: 5vmin;
   color: black;
 }
@@ -45,24 +49,34 @@ h2 {
 }
 
 .overlay {
+  background: rgba(0, 0, 0, 0.4);
   position: absolute;
+  margin-left: 15%;
   top: 150px;
-  width: 100%;
+  width: 70%;
+  padding: 3%;
+}
+
+.overlay h1 {
+  margin: 0 auto;
+  font-size: 7vmin;
+  color: white;
+  font-family: 'Satisfy', cursive;
 }
 
 .overlay h2 {
   margin: 0 auto;
-  font-size: 8vmin;
+  font-size: 4vmin;
   color: white;
-  width: 70%;
+  font-family: 'Lora', serif;
 }
 
 .sign-in-link {
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 .sign-in-link a {
-  color: #7bf58d;
+  color: #8d7bf5;
   font-size: 5vmin;
 }
 
@@ -70,4 +84,12 @@ h2 {
 .menu a {
   padding: 1.5vmin 1.5vmin;
   font-size: 5vmin;
+}
+
+
+/* This sets up the show page */
+img.picture {
+  display: block;
+  margin:auto;
+  padding-top: 3%;
 }

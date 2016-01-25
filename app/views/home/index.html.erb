@@ -1,9 +1,32 @@
-<div class="media-container">
-  <%= image_tag("mobile_cover.jpg", :alt => "mobile cover") %>
-  <div class="text-center overlay">
-    <h2>Match, meet, mingle.</h2>
-    <div class="sign-in-link">
-      <%= link_to "Log In", new_user_session_path %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wingme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+      <%= render 'layouts/menu' %>
+      <%= render 'layouts/title_bar' %>
+      <div class="off-canvas-content" data-off-canvas-content>
+        <%= render 'layouts/flash' %>
+        <div class="media-container">
+          <%= image_tag("mobile_cover.jpg", :alt => "mobile cover") %>
+          <div class="text-center overlay">
+            <h1>WingMe</h1>
+            <h2>Match, meet, mingle.</h2>
+            <div class="sign-in-link">
+              <%= link_to "Log In", new_user_session_path %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</body>
+</html>
