@@ -7,6 +7,9 @@
 //
 @import "motion-ui/motion-ui";
 
+// This is useful for fonts
+@import url(https://fonts.googleapis.com/css?family=Satisfy|Slabo+27px|Lora);
+
 // We include everything by default.  To slim your CSS, remove components you don"t use.
 
 @include foundation-global-styles;

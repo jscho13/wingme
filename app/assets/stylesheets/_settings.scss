@@ -1,10 +1,11 @@
 // red #f58d7b
 // green #7bf58d
 // blue #8d7bf5
+// darker-blue #6256ab
 // complement #7be3f5
 // analgous mango #f5ca7b
 // analgous pink #f57ba6
-
+// text color #492a24
 
 //  Foundation for Sites Settings
 //  -----------------------------
@@ -58,7 +59,7 @@ $global-lineheight: 1.5;
 $primary-color: #fefefe;
 $secondary-color: #8d7bf5;
 $analog-mango: #f5ca7b;
-$success-color: #3adb76;
+$success-color: #7062c4;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
 $light-gray: #e6e6e6;
@@ -67,8 +68,8 @@ $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: #f58d7b;
-$body-font-color: $black;
-$body-font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$body-font-color: #492a24;
+$body-font-family: 'Slabo 27px', serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -104,7 +105,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+$header-font-family: 'Lora', serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
