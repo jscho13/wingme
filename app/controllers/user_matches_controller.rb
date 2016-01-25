@@ -1,4 +1,14 @@
 class UserMatchesController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+  end
+
   def new
     @selected_user = params[:user_id]
   end

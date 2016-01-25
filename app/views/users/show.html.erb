@@ -7,16 +7,6 @@
   <%= link_to "#{user.name}", user_path(user) %>
 <% end %>
 
-<h1>Matches</h1>
-<% @user.matches.each do |user| %>
-  <%= link_to "#{user.name}", user_path(user) %>
-<% end %>
-
-<h1>Friends</h1>
-<% @user.friends.each do |user| %>
-  <%= link_to "#{user.name}", user_path(user) %>
-<% end %>
-
 <% if @user == current_user %>
   <h1>Pending Friend Requests</h1>
   <% current_user.requested_by_friends.each do |user| %>
@@ -38,11 +28,6 @@
     <li class="picture"><%= image_tag(current_user.picture) %></li>
     <!-- <li class="picture"><%= image_tag(current_user.picture.thumb) %></li> -->
   <% end %>
-  <li><%= link_to "Home", user_path(current_user) %></li>
-  <li><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></li>
-  <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-  <% else %>
-  <li><%= link_to "Sign In", new_user_session_path %></li>
 <% end %>
 
 

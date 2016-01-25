@@ -121,8 +121,9 @@ feature "user visits their show page" do
     sign_in_as(user_5)
     visit user_path(user_2)
     click_on "Accept Match!"
+    visit user_matches_path(user_5)
 
-    expect(page).to have_link(full_name, count: 2)
+    expect(page).to have_content(full_name)
   end
 
   scenario "user cannot be matched with themself" do

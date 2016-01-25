@@ -56,7 +56,7 @@ $global-font-size: 100%;
 $global-width: auto;
 $global-lineheight: 1.5;
 $primary-color: #fefefe;
-$secondary-color: #7be3f5;
+$secondary-color: #8d7bf5;
 $success-color: #3adb76;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
@@ -110,7 +110,7 @@ $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
     'h1': 24,
-    'h2': 20,
+    'h2': 16vmin,
     'h3': 19,
     'h4': 18,
     'h5': 17,
@@ -325,7 +325,7 @@ $flexvideo-ratio-widescreen: 16 by 9;
 
 $fieldset-border: 1px solid $medium-gray;
 $fieldset-padding: rem-calc(20);
-$fieldset-margin: rem-calc(18 0);
+$fieldset-margin: rem-calc(17 0);
 $legend-padding: rem-calc(0 3);
 $form-spacing: rem-calc(16);
 $helptext-color: #333;
@@ -335,21 +335,21 @@ $input-prefix-color: $black;
 $input-prefix-background: $light-gray;
 $input-prefix-border: 1px solid $medium-gray;
 $input-prefix-padding: 1rem;
-$form-label-color: $black;
-$form-label-font-size: rem-calc(14);
+$form-label-color: #492a24;
+$form-label-font-size: 5vmin;
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
 $select-background: $white;
 $select-triangle-color: #333;
 $select-radius: $global-radius;
-$input-color: $black;
+$input-color: #8d7bf5;
 $input-font-family: inherit;
 $input-font-size: rem-calc(16);
 $input-background: $white;
 $input-background-focus: $white;
 $input-background-disabled: $light-gray;
-$input-border: 1px solid $medium-gray;
-$input-border-focus: 1px solid $dark-gray;
+$input-border: 2px solid #f5ca7b;
+$input-border-focus: 2px solid #8d7bf5;
 $input-shadow: inset 0 1px 2px rgba($black, 0.1);
 $input-shadow-focus: 0 0 5px $medium-gray;
 $input-cursor-disabled: default;

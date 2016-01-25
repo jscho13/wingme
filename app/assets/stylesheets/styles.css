@@ -6,12 +6,35 @@
 /* analgous pink #f57ba6 */
 
 /* Global stuff */
+a {
+  font-size: 4vmin;
+}
+
 .off-canvas-wrapper {
   height: 100%;
 }
 
 .title-bar-title {
   font-size: 5vmin;
+  color: black;
+}
+
+/* This sets up forms */
+h2 {
+  padding: 10px 0 0 0;
+}
+
+.button {
+  font-size: 4vmin;
+  padding: 3vmin;
+}
+
+/* This sets up flash messages */
+.flash {
+  font-size: 4.5vmin;
+  background-color: #ec5840;
+  text-align: center;
+  color: white;
 }
 
 /* This sets up the home page */
@@ -40,4 +63,11 @@
 
 .sign-in-link a {
   color: #7bf58d;
+  font-size: 5vmin;
+}
+
+/* This sets up the off-canvas menu */
+.menu a {
+  padding: 1.5vmin 1.5vmin;
+  font-size: 5vmin;
 }

@@ -8,33 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 
-<%= render 'layouts/flash' %>
-
 <body>
   <div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-
-      <div class="off-canvas position-left" id="menuTrigger" data-off-canvas>
-        <ul class="vertical dropdown menu" data-dropdown-menu>
-          <li><a href="right_item_1">Profile</a></li>
-          <li><a href="right_item_2">Friends</a></li>
-          <li><a href="right_item_3">Matches</a></li>
-          <li><a href="right_item_3">Sign Out</a></li>          
-        </ul>
-      </div>
-
-      <div class="title-bar">
-        <div class="title-bar-left">
-          <button class="menu-icon" type="button" data-open="menuTrigger"></button>
-          <span class="title-bar-title">WingMe</span>
-        </div>
-      </div>
-
+      <%= render 'layouts/menu' %>
+      <%= render 'layouts/title_bar' %>
       <div class="off-canvas-content" data-off-canvas-content>
+        <%= render 'layouts/flash' %>
         <%= yield %>
       </div>
     </div>
-
   </div>
 </body>
 </html>
