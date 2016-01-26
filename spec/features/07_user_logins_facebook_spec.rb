@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "user visits their show page" do
   let!(:t_url) do
-    'https://ariherzog.com/blog/wp-content/uploads/2010/10/longurl.jpg'
+    'http://i.imgur.com/dYUSsLG.png?1'
   end
 
   before(:each) do
@@ -28,6 +28,6 @@ feature "user visits their show page" do
     visit "/users/sign_in"
     click_on "Sign in with Facebook"
 
-    expect(page).to have_selector("input[value=\'#{t_url}\']")
+    expect(page).to have_content("Successfully authenticated from Facebook account.")
   end
 end

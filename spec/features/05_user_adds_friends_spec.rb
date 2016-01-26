@@ -63,7 +63,7 @@ feature "user visits their show page" do
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_1)
-    click_on "Accept Friend!"
+    click_on "Friend Back!"
     visit user_friends_path(user_2)
     expect(page).to have_content(full_name_1)
   end

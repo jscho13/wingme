@@ -4,17 +4,6 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :picture %>
-    <%= f.file_field :picture %>
-    <%= image_tag(@user.picture_url) if @user.picture? %>
-  </div>
-
-  <div class="field">
-    <label for="user_remote_picture_url">Picture URL</label>
-    <%= f.text_field :remote_picture_url %>
-  </div>
-
-  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name, autofocus: true %>
   </div>
@@ -44,6 +33,12 @@
     <%= label_tag(:gender, "Female") %>
     <%= f.radio_button(:gender, "Other") %>
     <%= label_tag(:gender, "Other") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :picture %>
+    <%= f.file_field :picture %>
+    <%= image_tag(@user.picture_url) if @user.picture? %>
   </div>
 
   <div class="actions">

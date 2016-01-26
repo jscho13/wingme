@@ -1,6 +1,5 @@
 // red #f58d7b
 // green #7bf58d
-// blue #8d7bf5
 // darker-blue #6256ab
 // complement #7be3f5
 // analgous mango #f5ca7b
@@ -53,22 +52,25 @@
 // 1. Global
 // ---------
 
+$white: #fefefe;
+$salmon: #f58d7b;
+$blue: #8d7bf5;
+$text-brown: #623831;
 $global-font-size: 100%;
 $global-width: auto;
 $global-lineheight: 1.5;
-$primary-color: #fefefe;
-$secondary-color: #8d7bf5;
+$primary-color: $text-brown;
+$secondary-color: $salmon;
 $analog-mango: #f5ca7b;
 $success-color: #7062c4;
 $warning-color: #ffae00;
-$alert-color: #ec5840;
+$alert-color: #f5ca7b;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
-$white: #fefefe;
-$body-background: #f58d7b;
-$body-font-color: #492a24;
+$body-background: $white;
+$body-font-color: $text-brown;
 $body-font-family: 'Slabo 27px', serif;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -344,14 +346,14 @@ $form-label-line-height: 1.8;
 $select-background: $white;
 $select-triangle-color: #333;
 $select-radius: $global-radius;
-$input-color: #8d7bf5;
+$input-color: $blue;
 $input-font-family: inherit;
 $input-font-size: rem-calc(16);
 $input-background: $white;
 $input-background-focus: $white;
 $input-background-disabled: $light-gray;
 $input-border: 2px solid $analog-mango;
-$input-border-focus: 2px solid #8d7bf5;
+$input-border-focus: 2px solid $blue;
 $input-shadow: inset 0 1px 2px rgba($black, 0.1);
 $input-shadow-focus: 0 0 5px $medium-gray;
 $input-cursor-disabled: default;
@@ -388,7 +390,7 @@ $menu-expand-max: 6;
 // --------------
 
 $offcanvas-size: 25%;
-$offcanvas-background: #f58d7b;
+$offcanvas-background: $white;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
@@ -532,7 +534,7 @@ $titlebar-color: $black;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
 $titlebar-icon-color: #f58d7b;
-$titlebar-icon-color-hover: #d594ee;
+$titlebar-icon-color-hover: $blue;
 $titlebar-icon-spacing: 0.5rem;
 
 // 34. Tooltip

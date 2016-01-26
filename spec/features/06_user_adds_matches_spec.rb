@@ -86,7 +86,7 @@ feature "user visits their show page" do
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_5)
-    click_on "Accept Match!"
+    click_on "Match Back!"
     visit user_path(user_5)
 
     expect(page).to have_content("Match Request Pending")
@@ -99,11 +99,11 @@ feature "user visits their show page" do
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_5)
-    click_on "Accept Match!"
+    click_on "Match Back!"
     click_on "Sign Out"
     sign_in_as(user_5)
     visit user_path(user_2)
-    click_on "Accept Match!"
+    click_on "Match Back!"
     visit user_path(user_2)
 
     expect(page).to_not have_content("Add Match")
@@ -116,11 +116,11 @@ feature "user visits their show page" do
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_5)
-    click_on "Accept Match!"
+    click_on "Match Back!"
     click_on "Sign Out"
     sign_in_as(user_5)
     visit user_path(user_2)
-    click_on "Accept Match!"
+    click_on "Match Back!"
     visit user_matches_path(user_5)
 
     expect(page).to have_content(full_name)

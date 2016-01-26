@@ -1,6 +1,6 @@
 <div class="off-canvas position-left" id="menuTrigger" data-off-canvas>
   <ul class="vertical dropdown menu" data-dropdown-menu>
-    <% if current_user %>
+    <% if current_user != nil %>
       <li><%= link_to "Profile", user_path(current_user) %></li>
       <li><%= link_to "Matches", user_matches_path(current_user) %></li>
       <li><%= link_to "Friends", user_friends_path(current_user) %></li>
