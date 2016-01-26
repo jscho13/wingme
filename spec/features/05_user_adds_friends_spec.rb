@@ -32,38 +32,38 @@ feature "user visits their show page" do
   end
 
   scenario "user can add a friend" do
-    click_on user_2.name
+    visit user_path(user_2)
     click_on "Add Friend"
     visit user_path(user_2)
     expect(page).to have_content("Friend Request Pending")
   end
 
   scenario "user cannot re-add a friend" do
-    click_on user_2.name
+    visit user_path(user_2)
     click_on "Add Friend"
     visit user_path(user_2)
     expect(page).to_not have_content("Add Friend")
   end
 
   scenario "user cannot see other peoples pending list" do
-    click_on user_2.name
+    visit user_path(user_2)
     expect(page).to_not have_content("Pending")
   end
 
   scenario "user does not have a friend until other user confirms" do
-    click_on user_2.name
+    visit user_path(user_2)
     click_on "Add Friend"
     visit user_friends_path(user_1)
     expect(page).to_not have_content(full_name_2)
   end
 
   scenario "user has a friend when both users confirm" do
-    click_on user_2.name
+    visit user_path(user_2)
     click_on "Add Friend"
     click_on "Sign Out"
     sign_in_as(user_2)
     visit user_path(user_1)
-    click_on "Accept Friend!"
+    click_on "Friend Back!"
     visit user_friends_path(user_2)
     expect(page).to have_content(full_name_1)
   end

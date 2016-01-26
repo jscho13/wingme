@@ -1,24 +1,10 @@
 <div class="row text-center">
-  <%= link_to "Explore", { controller: "home", action: "show" }, class: "next-person" %>
+  <%= link_to "Explore", { controller: "home", action: "show" } %>
   <%= image_tag(@user.picture, class:"picture") %>
 
   <ul>
     <li>Name: <%= @user.name %></li>
-    <li>About Me: <%= @user.description %></li>
-  </ul>
-
-  <% if @user == current_user %>
-    <ul>
-      <h3>Friend Requests</h3>
-      <% current_user.requested_by_friends.each do |user| %>
-        <li><%= link_to user.name, user_path(user) %></li>
-      <% end %>
-      <h3>Match Requests</h3>
-      <% current_user.requested_matches.each do |user| %>
-        <li><%= link_to user.name, user_path(user) %></li>
-      <% end %>
-    </ul>
-  <% end %>
+    <li>Description: <%= @user.description %></li>
 
   <% if current_user.pending_friend?(@user) %>
     <li>Friend Request Pending</li>
@@ -37,4 +23,7 @@
   <% elsif !current_user.match?(@user) %>
     <li><%= link_to "Add Match", new_user_match_path(params[:id]) %></li>
   <% end %>
+</ul>
+
+  <hr>
 </div>

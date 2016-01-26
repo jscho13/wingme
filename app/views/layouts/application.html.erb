@@ -13,12 +13,14 @@
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
       <%= render 'layouts/menu' %>
       <%= render 'layouts/title_bar' %>
+
       <div class="off-canvas-content" data-off-canvas-content>
         <%= render 'layouts/flash' %>
         <div class="small-12 medium-offset-3 medium-6 columns">
           <%= yield %>
         </div>
       </div>
+
     </div>
   </div>
 </body>

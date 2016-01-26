@@ -58,50 +58,49 @@ feature "user visits their show page" do
   let!(:friend_1) do
     UserFriend.create(
       user_id: user_1.id,
-      friend_id: user_2.id
+      friend_id: user_2.id,
+      pending: false
     )
   end
 
   let!(:friend_2) do
     UserFriend.create(
       user_id: user_1.id,
-      friend_id: user_3.id
+      friend_id: user_3.id,
+      pending: false
     )
   end
 
   let!(:match) do
     UserMatch.create(
       user_id: user_2.id,
-      match_id: user_4.id
+      match_id: user_4.id,
+      pending: false,
+      pending_acceptance: false
     )
   end
 
   let!(:match_2) do
     UserMatch.create(
       user_id: user_2.id,
-      match_id: user_5.id
+      match_id: user_5.id,
+      pending: false,
+      pending_acceptance: false
     )
   end
 
   scenario "user can view their friends" do
     sign_in_as(user_1)
+    visit user_friends_path(user_1)
 
     expect(page).to have_content(user_2.name)
     expect(page).to have_content(user_3.name)
   end
 
   scenario "user can view their matches" do
-    sign_in_as(user_1)
+    sign_in_as(user_2)
+    visit user_matches_path(user_2)
 
-    expect(page).to have_content(user_4.name)
-    expect(page).to have_content(user_5.name)
-  end
-
-  scenario "user can view all users" do
-    sign_in_as(user_1)
-
-    expect(page).to have_content(user_1.name)
-    expect(page).to have_content(user_2.name)
     expect(page).to have_content(user_4.name)
     expect(page).to have_content(user_5.name)
   end

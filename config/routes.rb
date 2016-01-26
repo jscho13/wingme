@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :user_friends, as: :friends
     resources :user_matches, as: :matches
   end
+  resources :home, only: [:index, :show]
 
   # Example resource route with options:
   #   resources :products do
