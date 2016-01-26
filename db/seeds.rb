@@ -8,12 +8,17 @@ require 'faker'
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-20.times do
+25.times do
   User.create(
-    email: Faker::Email,
-    name: Faker::Name,
-    gender: 'Male',
-    password: '12341234'
+    name: Faker::Name.name,
+    gender: ['Male', 'Female', 'Other'].sample,
+    address: Faker::Address.street_address,
+    zip_code: Faker::Address.zip_code,
+    description: Faker::Lorem.paragraph,
+    email: Faker::Internet.email,
+    password: '12341234',
+    picture: Faker::Avatar.image,
+    city: Faker::Address.city
   )
 end
 
