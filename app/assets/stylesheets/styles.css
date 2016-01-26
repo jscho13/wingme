@@ -18,6 +18,10 @@ ul {
   list-style-type: none;
 }
 
+li {
+  font-size: 5vmin;
+}
+
 h1 {
   font-size: 6vmin;
   padding: 0;
@@ -107,4 +111,9 @@ h2 {
 img.picture {
   display: block;
   margin:auto;
+}
+
+a.next-person {
+  font-size: 4vmin;
+  font-weight: bold;
 }
