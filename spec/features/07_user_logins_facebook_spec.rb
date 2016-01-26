@@ -28,6 +28,6 @@ feature "user visits their show page" do
     visit "/users/sign_in"
     click_on "Sign in with Facebook"
 
-    expect(page).to have_content("Successfully authenticated from Facebook account.")
+    expect(page).to have_content("Successfully authenticated from Facebook")
   end
 end

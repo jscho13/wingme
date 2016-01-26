@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_update_path_for(user)
-    user_path(user)    
+    user_path(user)
   end
 end
