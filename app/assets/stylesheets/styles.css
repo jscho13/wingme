@@ -109,6 +109,7 @@ h2 {
 
 /* This sets up the show page */
 img.picture {
+  padding-top: 3%;
   display: block;
   margin:auto;
 }
