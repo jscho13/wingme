@@ -28,13 +28,13 @@ describe PictureUploader do
 
   context 'the thumb version' do
     it "should scale down a landscape image to be exactly 200 by 200 pixels" do
-      expect(@uploader.thumb).to have_dimensions(100, 100)
+      expect(@uploader.thumb).to have_dimensions(50, 50)
     end
   end
 
   context 'the small version' do
     it "should scale down a landscape image to fit within 800 by 800 pixels" do
-      expect(@uploader).to be_no_larger_than(300, 300)
+      expect(@uploader).to be_no_larger_than(800, 800)
     end
   end
 

@@ -1,0 +1,9 @@
+<div class="small-12 medium-10 medium-centered large-12 columns">
+  <%= link_to "Find Someone", users_path, class: "next-person" %>
+  <hr>
+    <div class="grid">
+      <%= render @users %>
+    </div>
+  <hr>
+  <%= paginate @users %>
+</div>

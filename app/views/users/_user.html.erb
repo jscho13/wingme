@@ -1,0 +1,30 @@
+<div class="grid-item">
+  <% if user.picture_url %>
+    <%= image_tag(user.picture, class:"picture") %>
+  <% else %>
+    <%= image_tag(user.picture_url, class:"picture") %>
+  <% end %>
+
+  <ul>
+    <li>Name: <%= user.name %></li>
+    <!-- <li>Description: <%= user.description %></li> -->
+
+    <% if current_user.pending_friend?(user) %>
+      <li>Friend Request Pending</li>
+    <% elsif current_user.friend_request_sent_by?(user) %>
+      <li><%= link_to "Friend Back!", user_friend_path(user, user_friend), :method => :patch %></li>
+    <% elsif current_user == user %>
+    <% elsif !current_user.friend?(user) %>
+      <li><%= link_to "Add Friend", user_friends_path(user), method: :post %></li>
+    <% end %>
+
+    <% if current_user.match_request_sent_by?(user) %>
+      <li><%= link_to "Match Back!", user_match_path(user, user_match), :method => :patch %></li>
+    <% elsif current_user.pending_match?(user) %>
+      <li>Match Request Pending</li>
+    <% elsif current_user == user %>
+    <% elsif !current_user.match?(user) %>
+      <li><%= link_to "Add Match", new_user_match_path(user) %></li>
+    <% end %>
+  </ul>
+</div>
