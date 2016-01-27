@@ -9,3 +9,14 @@ $(document).ready(function(){
     });
   });
 })
+
+$(document).ready(function(){
+  $(function(){
+      var blue = $(document.body);
+
+      Hammer(blue).on("swiperight", function() {
+        $("button.menu-icon").trigger("click")
+      });
+
+  })
+})

@@ -1,16 +1,4 @@
-/* TITLE: font-family: 'Satisfy', cursive; */
-/* HEADERS: font-family: 'Lora', serif; */
-/* TEXT: font-family: 'Slabo 27px', serif; */
-/* red #f58d7b */
-/* green #7bf58d */
-/* blue #8d7bf5 */
-/* salmon #f58d7b */
-/* complement #7be3f5 */
-/* analgous mango #f5ca7b */
-/* analgous pink #f57ba6 */
-
 /* Global stuff */
-
 
 a {
   /*font-size: 4vmin;  FOR SMALL SCRENS*/
@@ -52,7 +40,9 @@ h2 {
 }
 
 .button {
-  font-size: 4vmin;
+  /*For small screens*/
+  /*font-size: 4vmin;*/
+  font-size: 2vmin;
   padding: 3vmin;
 }
 
