@@ -17,10 +17,11 @@ images = [
   "https://scontent-lga3-1.cdninstagram.com/hphotos-xat1/t51.2885-15/e35/p480x480/12556084_1563182450638473_1374109311_n.jpg",
   "http://computableplant.ics.uci.edu/theses/guy/Guy%20Yosiphon_files/guy2.JPG",
   "http://media3.popsugar-assets.com/files/2015/03/30/626/n/1922398/fce9d1e1_edit_img_cover_file_15954503_1427722683_2Q_-2NSFIOl.xxxlarge/i/Male-Model-Math-Teacher.jpg",
-  "http://www.glamour.com/images/fashion/2015/12/gigi-hadid-kendall-jenner-discovered-model-h724.jpg"
+  "http://www.glamour.com/images/fashion/2015/12/gigi-hadid-kendall-jenner-discovered-model-h724.jpg",
+  "http://orig13.deviantart.net/5ab6/f/2014/113/b/4/model_by_adysaputra13-d7fqym5.jpg"
 ]
 
-10.times do
+10.times do |x|
   User.create(
     name: Faker::Name.name,
     gender: ['Male', 'Female', 'Other'].sample,
@@ -29,7 +30,7 @@ images = [
     description: Faker::Lorem.paragraph,
     email: Faker::Internet.email,
     password: '12341234',
-    remote_picture_url: images.sample,
+    remote_picture_url: images[x],
     city: Faker::Address.city
   )
 end
