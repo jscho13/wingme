@@ -10,8 +10,11 @@
 /* analgous pink #f57ba6 */
 
 /* Global stuff */
+
+
 a {
-  font-size: 4vmin;
+  /*font-size: 4vmin;  FOR SMALL SCRENS*/
+  font-size: 2vmin;
 }
 
 ul {
@@ -19,7 +22,7 @@ ul {
 }
 
 li {
-  font-size: 5vmin;
+  font-size: 2vmin;
 }
 
 h1 {
@@ -32,7 +35,7 @@ h1 {
   height: 100%;
 }
 
-/* Title bar */
+/* This sets up the title bar */
 .title-bar {
   border-bottom: 2px solid #f58d7b;
 }
@@ -106,8 +109,7 @@ h2 {
   font-size: 5vmin;
 }
 
-
-/* This sets up the show page */
+/* This sets up the index page */
 img.picture {
   padding-top: 3%;
   display: block;
@@ -117,4 +119,27 @@ img.picture {
 a.next-person {
   font-size: 4vmin;
   font-weight: bold;
+}
+
+.grid {
+  max-width: auto;
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 20%;
+}
+
+.grid-item {
+  height: auto;
+  float: left;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
 }

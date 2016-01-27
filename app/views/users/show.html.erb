@@ -1,6 +1,10 @@
 <div class="row text-center">
   <a href="/users">Find Someone!</a>
-  <%= image_tag(@user.picture, class:"picture") %>
+    <% if @user.remote_picture_url %>
+      <%= image_tag(@user.remote_picture_url, class:"picture") %>
+    <% else %>
+      <%= image_tag(@user.picture, class:"picture") %>
+    <% end %>
 
   <ul>
     <li>Name: <%= @user.name %></li>
