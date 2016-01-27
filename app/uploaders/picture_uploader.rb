@@ -2,8 +2,11 @@
 class PictureUploader < CarrierWave::Uploader::Base
   # Uncomment the below to allow image resizing. Play with
   include CarrierWave::MiniMagick
+
+  process resize_to_limit: [nil, 400]
+
   version :thumb do
-    process resize_to_fill: [250, 250]
+    process resize_to_fill: [200, 200]
   end
 
   # Choose what kind of storage to use for this uploader:

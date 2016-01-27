@@ -114,6 +114,7 @@ img.picture {
   padding-top: 3%;
   display: block;
   margin:auto;
+  max-width: none;
 }
 
 a.next-person {
@@ -122,18 +123,13 @@ a.next-person {
 }
 
 .grid {
-  max-width: auto;
+  width: 100%;
 }
 
 .grid:after {
   content: '';
   display: block;
   clear: both;
-}
-
-.grid-sizer,
-.grid-item {
-  width: 20%;
 }
 
 .grid-item {
