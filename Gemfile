@@ -21,6 +21,7 @@ gem 'pg_search'
 gem "mini_magick"
 gem 'omniauth-facebook', '3.0.0'
 gem 'kaminari'
+gem 'faker'
 
 group :development, :test do
   gem 'mailcatcher'
@@ -28,7 +29,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
-  gem 'faker'
 end
 
 group :test do
