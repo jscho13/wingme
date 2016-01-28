@@ -1,30 +1,35 @@
 <div class="grid-item">
   <% if user.picture_url %>
-    <%= image_tag(user.picture, class:"picture") %>
+    <a data-open=<%= user.id %>><%= image_tag(user.picture, class:"picture") %></a>
   <% else %>
-    <%= image_tag(user.picture_url, class:"picture") %>
+    <a data-open=<%= user.id %>><%= image_tag(user.picture_url, class:"picture") %></a>
   <% end %>
+  <ul><li><%= user.name %></ul></li>
+</div>
 
+<div class="reveal" data-animation-in="fade-in" data-animation-out="fade-out" id=<%= user.id %> data-reveal>
   <ul>
-    <li>Name: <%= user.name %></li>
-    <!-- <li>Description: <%= user.description %></li> -->
+    <li>About Me: <br><%= user.description %></li><br>
 
     <% if current_user.pending_friend?(user) %>
       <li>Friend Request Pending</li>
     <% elsif current_user.friend_request_sent_by?(user) %>
-      <li><%= link_to "Friend Back!", user_friend_path(user, user_friend), :method => :patch %></li>
+      <li><%= button_to "Friend Back!", user_friend_path(user, user_friend), method: :patch, class: "hollow success button float-left" %></li>
     <% elsif current_user == user %>
     <% elsif !current_user.friend?(user) %>
-      <li><%= link_to "Add Friend", user_friends_path(user), method: :post %></li>
+      <li><%= button_to "Add Friend", user_friends_path(user), method: :post, class: "hollow success button float-left" %></li>
     <% end %>
 
     <% if current_user.match_request_sent_by?(user) %>
-      <li><%= link_to "Match Back!", user_match_path(user, user_match), :method => :patch %></li>
+      <li><%= button_to "Match Back!", user_match_path(user, user_match), method: :patch, class: "hollow success button float-right" %></li>
     <% elsif current_user.pending_match?(user) %>
       <li>Match Request Pending</li>
     <% elsif current_user == user %>
     <% elsif !current_user.match?(user) %>
-      <li><%= link_to "Add Match", new_user_match_path(user) %></li>
+      <li><%= button_to "Add Match", new_user_match_path(user), class: "hollow success button float-right" %></li>
     <% end %>
   </ul>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>

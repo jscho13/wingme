@@ -1,11 +1,3 @@
-// red #f58d7b
-// green #7bf58d
-// darker-blue #6256ab
-// complement #7be3f5
-// analgous mango #f5ca7b
-// analgous pink #f57ba6
-// text color #492a24
-
 //  Foundation for Sites Settings
 //  -----------------------------
 //
@@ -52,16 +44,16 @@
 // 1. Global
 // ---------
 
-$white: #fefefe;
-$salmon: #f58d7b;
-$blue: #8d7bf5;
-$text-brown: #623831;
+$dark: #321425;
+$blue: #A3D2CE;
+$orange: #F58D7B;
+$green: #B9D7C8;
+$white: #FFFFFF;
 $global-font-size: 100%;
 $global-width: auto;
 $global-lineheight: 1.5;
-$primary-color: $text-brown;
-$secondary-color: $salmon;
-$analog-mango: #f5ca7b;
+$primary-color: $dark;
+$secondary-color: $orange;
 $success-color: #7062c4;
 $warning-color: #ffae00;
 $alert-color: #f57ba6;
@@ -70,7 +62,7 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $body-background: $white;
-$body-font-color: $text-brown;
+$body-font-color: $dark;
 $body-font-family: 'Slabo 27px', serif;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -145,7 +137,7 @@ $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
 $anchor-color: $primary-color;
-$anchor-color-hover: $secondary-color;
+$anchor-color-hover: $blue;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -352,7 +344,7 @@ $input-font-size: rem-calc(16);
 $input-background: $white;
 $input-background-focus: $white;
 $input-background-disabled: $light-gray;
-$input-border: 2px solid $analog-mango;
+$input-border: 2px solid $dark;
 $input-border-focus: 2px solid $blue;
 $input-shadow: inset 0 1px 2px rgba($black, 0.1);
 $input-shadow-focus: 0 0 5px $medium-gray;
@@ -389,7 +381,10 @@ $menu-expand-max: 6;
 // 23. Off-canvas
 // --------------
 
-$offcanvas-size: 25%;
+$offcanvas-size: 15%;
+// @media only screen and (max-width: 40em) {
+//   $offcanvas-size: 25%;
+// } Figure out how to make this work!
 $offcanvas-background: $white;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;

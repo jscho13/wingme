@@ -1,17 +1,23 @@
-/* TITLE: font-family: 'Satisfy', cursive; */
-/* HEADERS: font-family: 'Lora', serif; */
-/* TEXT: font-family: 'Slabo 27px', serif; */
-/* red #f58d7b */
-/* green #7bf58d */
-/* blue #8d7bf5 */
-/* salmon #f58d7b */
-/* complement #7be3f5 */
-/* analgous mango #f5ca7b */
-/* analgous pink #f57ba6 */
+/*.overlay h2 {
+  width: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  font-size: 4vmin;
+  color: white;
+  font-family: 'Lora', serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}*/
+/* If you use match meet mingle for the show page */
+
+/* Media queries */
+@media only screen and (max-width: 40em) {
+  .menu a {
+    padding: 1.5vmin 1.5vmin;
+    font-size: 5vmin
+  }
+}
 
 /* Global stuff */
-
-
 a {
   /*font-size: 4vmin;  FOR SMALL SCRENS*/
   font-size: 2vmin;
@@ -31,10 +37,6 @@ h1 {
   margin: 0;
 }
 
-.off-canvas-wrapper {
-  height: 100%;
-}
-
 /* This sets up the title bar */
 .title-bar {
   border-bottom: 2px solid #f58d7b;
@@ -52,7 +54,9 @@ h2 {
 }
 
 .button {
-  font-size: 4vmin;
+  /*For small screens*/
+  /*font-size: 4vmin;*/
+  font-size: 2vmin;
   padding: 3vmin;
 }
 
@@ -72,12 +76,11 @@ h2 {
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.4);
   position: absolute;
   margin-left: 15%;
   top: 150px;
   width: 70%;
-  padding: 3%;
+  padding: 5%;
 }
 
 .overlay h1 {
@@ -85,28 +88,33 @@ h2 {
   font-size: 7vmin;
   color: white;
   font-family: 'Satisfy', cursive;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
-.overlay h2 {
-  margin: 0 auto;
-  font-size: 4vmin;
-  color: white;
-  font-family: 'Lora', serif;
-}
-
 .sign-in-link {
   margin-top: 3%;
 }
 
 .sign-in-link a {
-  color: #f58d7b;
+  color: #F58D7B;
   font-size: 5vmin;
+  text-shadow: -0.5px 0 white, 0 0.5px white, 0.5px 0 white, 0 -0.5px white;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+
 }
 
 /* This sets up the off-canvas menu */
+.off-canvas-wrapper {
+  height: 100%;
+}
+
 .menu a {
   padding: 1.5vmin 1.5vmin;
-  font-size: 5vmin;
+  font-size: 3.5vmin
+}
+
+.off-canvas-wrapper-inner {
+  height: 100%;
 }
 
 /* This sets up the index page */
@@ -131,4 +139,5 @@ a.next-person {
   border: 2px solid #333;
   border-color: hsla(0, 0%, 0%, 0.5);
   border-radius: 5px;
+  margin-bottom: 10px;
 }
