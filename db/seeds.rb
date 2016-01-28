@@ -65,7 +65,7 @@ User.create(
 )
 
 User.create(
-  email: 'account2@example.com',
+  email: 'account2@gmail.com',
   name: 'Amy Allen',
   gender: 'Female',
   password: '12341234',
