@@ -16,7 +16,7 @@ images = [
   "https://scontent-lga3-1.cdninstagram.com/hphotos-xpa1/t51.2885-15/e35/12545296_961901633900371_335778782_n.jpg",
   "https://40.media.tumblr.com/1a6bb21d05c1e7f2862bb221ef9ef301/tumblr_o1lkddQTg21riwhx4o1_1280.jpg",
   "https://scontent-lga3-1.cdninstagram.com/hphotos-xat1/t51.2885-15/e35/p480x480/12556084_1563182450638473_1374109311_n.jpg",
-  "http://www.robotbutt.com/wp-content/uploads/2014/07/461777879.jpg"
+  "http://www.robotbutt.com/wp-content/uploads/2014/07/461777879.jpg",
   "https://scontent-lga3-1.cdninstagram.com/hphotos-xpt1/t51.2885-15/e35/12547318_1691702697783165_1995697415_n.jpg",
   "https://scontent-lga3-1.cdninstagram.com/hphotos-xap1/t51.2885-15/e35/12547675_1726940320884119_252067999_n.jpg",
   "https://41.media.tumblr.com/77c68c87c57695a4df2319cb1f74fab1/tumblr_o1m4cuVdvO1v17k85o1_500.jpg",
@@ -39,7 +39,7 @@ images = [
   "http://www.beyondblackwhite.com/wp-content/uploads/2015/02/iStock_000050131992_Medium.jpg",
   "https://36.media.tumblr.com/e3ff8aff2d3bdd65ca76ddfd8508a543/tumblr_o1lz3dxkMK1srlpa6o1_1280.jpg",
   "https://41.media.tumblr.com/fa2e8b6c6c0331800c1d9670eeca521c/tumblr_o1mj3dJmcF1r9ljpro1_500.jpg",
-  "https://41.media.tumblr.com/bd9f02903dc18f089939bcf51e50dee0/tumblr_o1m10o7XzH1v5wk8eo1_500.png",
+  "https://41.media.tumblr.com/bd9f02903dc18f089939bcf51e50dee0/tumblr_o1m10o7XzH1v5wk8eo1_500.png"
 ]
 
 31.times do |x|
