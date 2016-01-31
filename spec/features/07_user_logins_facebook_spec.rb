@@ -26,7 +26,7 @@ feature "user visits their show page" do
 
   scenario "user can sign in with FB" do
     visit "/users/sign_in"
-    click_on "Sign in with Facebook"
+    find(:xpath, "//a[@href='/users/auth/facebook']").click
 
     expect(page).to have_content("Successfully authenticated from Facebook")
   end
