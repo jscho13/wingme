@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require imagesloaded.pkgd.js
+//= require masonry_run
+//= require masonry.pkgd.js
 //= require_tree .
