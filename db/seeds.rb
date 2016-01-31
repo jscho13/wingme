@@ -57,7 +57,7 @@ images = [
 end
 
 User.create(
-  email: 'jscho13@gmail.com',
+  email: 'account1@gmail.com',
   name: 'Joseph Cho',
   gender: 'Male',
   password: '12341234',
@@ -65,7 +65,7 @@ User.create(
 )
 
 User.create(
-  email: 'amy@example.com',
+  email: 'account2@gmail.com',
   name: 'Amy Allen',
   gender: 'Female',
   password: '12341234',
