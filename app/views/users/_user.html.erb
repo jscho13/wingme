@@ -1,10 +1,15 @@
 <div class="grid-item">
   <% if user.picture_url %>
-    <a data-open=<%= user.id %>><%= image_tag(user.picture, class:"picture") %></a>
+    <a data-open=<%= user.id %>>
+      <%= image_tag(user.picture_url, class:"picture") %>
+      <ul><li><%= user.name %></ul></li>
+    </a>
   <% else %>
-    <a data-open=<%= user.id %>><%= image_tag(user.picture_url, class:"picture") %></a>
+    <a data-open=<%= user.id %>>
+      <%= image_tag(user.picture, class:"picture") %>
+      <ul><li><%= user.name %></ul></li>
+    </a>
   <% end %>
-  <ul><li><%= user.name %></ul></li>
 </div>
 
 <div class="reveal" data-animation-in="fade-in" data-animation-out="fade-out" id=<%= user.id %> data-reveal>
@@ -26,7 +31,7 @@
       <li>Match Request Pending</li>
     <% elsif current_user == user %>
     <% elsif !current_user.match?(user) %>
-      <li><%= button_to "Add Match", new_user_match_path(user), class: "hollow success button float-right" %></li>
+      <li><%= button_to "Add Match", new_user_match_path(user), method: :get, class: "hollow success button float-right" %></li>
     <% end %>
   </ul>
   <button class="close-button" data-close aria-label="Close modal" type="button">

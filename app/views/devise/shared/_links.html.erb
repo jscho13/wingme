@@ -20,6 +20,6 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_omniauth_authorize_path(provider) %><br />
+    <a href= <%= user_omniauth_authorize_path(provider) %> ><%= image_tag("sign_in_with_fb.jpg") %></a>
   <% end -%>
 <% end -%>

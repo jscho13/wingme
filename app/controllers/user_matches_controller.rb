@@ -22,7 +22,7 @@ class UserMatchesController < ApplicationController
                      match_id: params[:user_id],
                      pending: true,
                      pending_acceptance: true)
-    redirect_to user_path(params[:user_id])
+    redirect_to users_path
   end
 
   def update

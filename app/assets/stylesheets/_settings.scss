@@ -49,18 +49,18 @@ $blue: #A3D2CE;
 $orange: #F58D7B;
 $green: #B9D7C8;
 $white: #FFFFFF;
+$black: #0a0a0a;
 $global-font-size: 100%;
 $global-width: auto;
 $global-lineheight: 1.5;
 $primary-color: $dark;
 $secondary-color: $orange;
-$success-color: #7062c4;
+$success-color: $green;
 $warning-color: #ffae00;
 $alert-color: #f57ba6;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #0a0a0a;
 $body-background: $white;
 $body-font-color: $dark;
 $body-font-family: 'Slabo 27px', serif;
@@ -230,10 +230,10 @@ $breadcrumbs-item-slash: true;
 // 11. Button
 // ----------
 
-$button-padding: 0.85em 1em;
+$button-padding: 2vmin 5vmin;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
+$button-background: $success-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: #fff;
 $button-color-alt: #000;
@@ -381,10 +381,7 @@ $menu-expand-max: 6;
 // 23. Off-canvas
 // --------------
 
-$offcanvas-size: 15%;
-// @media only screen and (max-width: 40em) {
-//   $offcanvas-size: 25%;
-// } Figure out how to make this work!
+$offcanvas-size: 20%;
 $offcanvas-background: $white;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;

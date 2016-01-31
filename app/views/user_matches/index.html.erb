@@ -1,7 +1,10 @@
 <div class="row text-center">
   <h1>Matches</h1>
   <% @user.matches.each do |user| %>
-    <%= image_tag(@user.picture, class:"picture") %>
-    <%= link_to user.name, user_path(user) %>
+    <% if user.picture_url %>
+      <%= link_to image_tag(@user.picture_url, class:"picture") + user.name, user_path(user) %>
+    <% else %>
+      <%= link_to image_tag(@user.picture, class:"picture") + user.name, user_path(user) %>
+    <% end %>
   <% end %>
 </div>
