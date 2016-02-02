@@ -58,7 +58,7 @@ end
 
 User.create(
   email: 'account1@gmail.com',
-  name: 'Joseph Cho',
+  name: 'Account 1',
   gender: 'Male',
   password: '12341234',
   picture: File.open(File.join(Rails.root, 'app/assets/images/test_picture.jpg'))
@@ -66,8 +66,15 @@ User.create(
 
 User.create(
   email: 'account2@gmail.com',
-  name: 'Amy Allen',
+  name: 'Account 2',
   gender: 'Female',
   password: '12341234',
   picture: File.open(File.join(Rails.root, 'app/assets/images/test_model.jpg'))
+)
+
+User.create(
+  email: 'account3@gmail.com',
+  name: 'Account 3',
+  gender: 'Female',
+  password: '12341234'
 )
